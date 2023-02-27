@@ -1,4 +1,0 @@
-<!--pages/home/home.wxml-->
-<!-- <button bindtap="scanCode">点击扫一扫</button> -->
-<!-- <button bindtap="scanCode">点击打电话</button> -->
-<button bindtap="scanCode">点击获取位置</button>

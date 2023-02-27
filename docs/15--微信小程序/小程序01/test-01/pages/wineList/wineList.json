@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "search":"/components/search/serach"
-  },
-  "enablePullDownRefresh": true,
-  "onReachBottomDistance":300
-}

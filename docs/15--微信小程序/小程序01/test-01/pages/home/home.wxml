@@ -1,8 +1,0 @@
-<!--pages/home/home.wxml-->
-<view wx:if="{{!userinfo}}">
-  <button bindtap="getUserProfile">点我获取用户信息</button>
-</view>
-<view wx:else>
-  <view>用户昵称: <text>{{userinfo.nickName}}</text></view>
-  <view>用户头像: <image src="{{userinfo.avatarUrl}}"></image></view>
-</view>

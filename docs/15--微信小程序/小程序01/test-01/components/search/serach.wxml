@@ -1,8 +1,0 @@
-<!--components/serach.wxml-->
-<view>
-  <!-- 搜索框 -->
-  <view class="search-input">
-    <input class="inp" value="{{sonValue}}" bindinput="getValue" type="text" placeholder="请输入搜索内容" confirm-type="search" bindconfirm="sendValue"/>
-    <view class="btn" bindtap="sendValue">搜索</view>
-  </view>
-</view>

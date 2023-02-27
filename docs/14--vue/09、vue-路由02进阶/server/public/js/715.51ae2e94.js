@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkvuerouter_test"]=self["webpackChunkvuerouter_test"]||[]).push([[715],{715:function(u,t,e){e.r(t),e.d(t,{default:function(){return v}});var l=function(){var u=this;u._self._c;return u._m(0)},n=[function(){var u=this,t=u._self._c;return t("div",[t("h3",[u._v("这里是学生地址信息组件")]),t("ul",[t("li",[u._v("郑州")]),t("li",[u._v("苏州")]),t("li",[u._v("杭州")]),t("li",[u._v("南京")])])])}],r={},i=r,s=e(1),_=(0,s.Z)(i,l,n,!1,null,null,null),v=_.exports}}]);
-//# sourceMappingURL=715.51ae2e94.js.map

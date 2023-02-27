@@ -1,6 +1,0 @@
-/* pages/home/home.wxss */
-button{
-  width: 400rpx;
-  height: 400rpx;
-  background-color: red;
-}

@@ -1,8 +1,0 @@
-<!--pages/index/index.wxml-->
-<view  wx:if="{{!userInfo}}">
-  <button bindtap="getUserProfile">点我获取头像昵称</button>
-</view>
-<view wx:else>
-  <image src="{{userInfo.avatarUrl}}"></image>
-  <view>{{userInfo.nickName}}</view>
-</view>
