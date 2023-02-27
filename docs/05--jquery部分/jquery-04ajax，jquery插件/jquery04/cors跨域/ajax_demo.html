@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    用户：<input type="text" id="username"><br>
+    密码：<input type="password" id="pword"><br>
+    <button onclick="sub()">点我</button>
+    <script>
+        // 环境变量
+        function sub() {
+            /*var ajax = new XMLHttpRequest() || new ActiveXObject(Microsoft.XMLHTTP);
+            ajax.open("POST", "http://127.0.0.1:3001/user", true);
+            ajax.send("act=login&user=" + username.value + "&pass=" + pword.value);
+            ajax.onreadystatechange = function () {
+                if (ajax.readyState == 4) {
+                    if (ajax.status == 200) {
+                        console.log(ajax.responseText);
+                    }
+                }
+            }*/
+            $.ajax({
+            	url:'http://127.0.0.1:8088/aaa/login1',
+                type:'post',
+                data:{'username':username.value,'password':pword.value},
+                success:function(result){
+                    console.log("请求成功=="+result);
+                },
+                error:function(){
+                    console.log('请求失败');
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

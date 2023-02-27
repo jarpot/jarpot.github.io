@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			select {
+				width: 300px;
+				height: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" id="msg"><button type="button" onclick="add()">添加</button><br>
+		<select id="left" multiple="multiple"></select>
+		<select id="right" multiple="multiple"></select><br>
+		<button onclick="toRight()">去右边</button>
+		<button onclick="toLeft()">去左边</button>
+		<button onclick="toRightAll()">全去右边</button>
+		<button>全去左边</button>
+
+
+		<script type="text/javascript">
+			//点击添加按钮  把输入框中的内容以选项的形式添加到左侧下拉框
+			function add() {
+				//var opEle = document.createElement("option");
+				left.innerHTML += "<option>" + msg.value + "</option>";
+			}
+
+			//去右边
+			/*需求：点击按钮  让 左侧被选中的选项去右边
+				需要我们先取出被选中的选项
+					根据 表单属性 selected="true"; 只要这个选项被选中 这个属性的值等于 true
+				先取出左侧框中所有的 option 选项
+				进行循环遍历 通过if判断  来取出被选中的选项。
+			*/
+			function toRight() {
+				//获取所有的左侧框中的 option
+				var opArr = document.querySelectorAll("#left option");
+				for (var i in opArr) {
+					//判断每一个option的selected属性是否等于 true
+					if (opArr[i].selected == true) {
+						//3.没必要在取出了  直接往右侧下拉框添加就可以了
+						right.appendChild(opArr[i]);
+					}
+				}
+			}
+
+			//去左边
+			function toLeft() {
+				//获取所有的左侧框中的 option
+				var opArr = document.querySelectorAll("#right option");
+				for (var i in opArr) {
+					//判断每一个option的selected属性是否等于 true
+					if (opArr[i].selected == true) {
+						//3.没必要在取出了  直接往右侧下拉框添加就可以了
+						left.appendChild(opArr[i]);
+					}
+				}
+			}
+
+			//全去右边
+			function toRightAll() {
+				//获取所有的左侧框中的 option
+				var opArr = document.querySelectorAll("#left option");
+				for (var i in opArr) {
+					//3.没必要在取出了  直接往右侧下拉框添加就可以了
+					right.appendChild(opArr[i]);
+				}
+			}
+		</script>
+	</body>
+</html>

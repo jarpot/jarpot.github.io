@@ -1,0 +1,43 @@
+路由
+	1.什么是路由？
+		在vue中路由就是一组对应关系，一个url路径对应一个组件
+	2.为什么要使用路由？
+		搭建spa应用
+		路由跳转的原理：锚点
+	3.路由如何使用？
+		① 安装并注册 vue-Router
+		② 定义路由器对象
+			在src下创建一个文件夹 router 定义一个index.js
+			定义路由规则 并向外暴漏路由对象。
+		③ 在main.js注册路由  Vue.use()
+			new Vue({router})
+	4.路由如何进行跳转
+		<router-link  to  tag  active-class> <router-view>
+	5.路由传参
+		① /:id   参数会存在 $route.params  
+		② props传参  在路由中开启props:true 在组件中 使用props:[]接收参数
+		③传递查询参数 在$route.query对象中
+		在to属性中传递参数  要么 把参数写在路径中
+			要么把to属性以对象的形式 设置 :to='{ path: query:..... }'
+	6.路由的跳转方式：
+		push/replace
+		历史记录栈   指针
+	7.编程式路由导航
+		是什么？通过js代码控制组件的跳转
+		$router.push({path:})/replace/go/back/forward()
+			注意：编程式路由导航 在跳转时也可以传递参数。
+	8.路由守卫
+		1.全局前置守卫  router.beforeEach((to,from,next)=>{})
+		2.全局后置守卫 。。。。
+		3.独享路由守卫
+		4.组件内守卫 
+	9.两种模式
+		hash
+		history
+	10.项目的发布
+		运行 npm run build  把生成的dist目录发给 后端就可以
+
+
+
+
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="add()">点我新增</button>
+    <div id="box"></div>
+    <!-- 先定义模板 template 模板 -->
+    <script id="tem" type="text/template">
+        <div class="son">
+            <img src="XXX"/>
+            <p>YYY</p>
+            
+        </div>
+    </script>
+
+    <script>
+        function add(){
+            box.innerHTML +=  tem.innerHTML
+                        .replace("XXX","http://www.baidu.com/img/PCfb_5bf082d29588c07f842ccde3f97243ea.png")
+                        .replace("YYY","你好哈哈哈")
+                        .replace('div','son1');
+        }
+    </script>
+</body>
+</html>

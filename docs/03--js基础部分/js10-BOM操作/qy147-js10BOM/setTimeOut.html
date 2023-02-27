@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="start()">开始</button>
+		<span ></span>
+		<button onclick="stop()">停止</button>
+		<script type="text/javascript">
+			//延迟一定的时间执行函数
+			/* var timer = setTimeout( 'aaa()' ,5000);
+			function aaa(){
+				alert(111);
+			} */
+			
+			//场景  打开页面  延迟一定的时间  自动弹出广高
+			//场景  错误页面的返回
+			//实时获取当前系统时间
+			
+			//需求：2021年11月22日 16时12分30秒
+			/**
+			 * 分析：必定有字符串拼接，说明我们需要从date中挨个取获取当前的年 月 日 时 分 秒
+			 */
+			//自己调用自己  递归 =====》循环调用
+			var timer;//定义全局变量
+			function start(){
+				timer = setTimeout(function(){
+					var date = new Date();
+					var year = date.getFullYear();
+					var month = date.getMonth()+1;
+					var day = date.getDate();
+					var week = date.getDay();
+					var hour = date.getHours();
+					var minute = date.getMinutes();
+					var second = date.getSeconds() > 9 ? date.getSeconds() : "0"+ date.getSeconds();
+					var time = year+"年"+month+"月"+day+"日 星期"+week+" "+hour+"时"+minute+"分"+second+"秒";
+					document.getElementsByTagName("span")[0].innerText = time;
+					start();
+				},1000);
+			}
+			
+			function stop(){
+				//停止计时器
+				clearTimeout(timer);
+			}
+		</script>
+	</body>
+</html>

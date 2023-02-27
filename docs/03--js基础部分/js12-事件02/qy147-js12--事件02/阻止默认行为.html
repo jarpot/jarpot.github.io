@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<input id="aaa"/>
+		<div class="box" hidden="hidden"></div>
+		
+		<script type="text/javascript">
+			/* aaa.oncopy = function(){
+				alert("请先登录");
+				//return false;
+			} */
+			/**
+			 * 点击鼠标右键，阻止掉默认菜单，出现自定义菜单，且鼠标点击哪里，自定义菜单就在哪里
+			 */
+			var divEle = document.getElementsByTagName("div")[0];
+			document.oncontextmenu = function(e){
+				e = e || window.event;
+				console.log("111");
+				//1.阻止默认行为
+				if(window.event){
+					//兼容 IE8一下
+					e.returnValue = false;
+				}else{
+					//非IE 
+					e.preventDefault();
+				}
+				//2.显示自定义菜单
+				divEle.style.display = "block";
+				//3.调整自定义菜单div框的位置
+				var s1 = window.innerWidth - e.clientX;
+				var s2 = window.innerHeight - e.clientY;
+				//拿差值跟 菜单的宽度比较  需要获取当前菜单元素的宽度和高度
+				//
+				if(s1 < divEle.offsetWidth){
+					divEle.style.left = window.innerWidth-divEle.offsetWidth +"px";
+				}else{
+					divEle.style.left = e.clientX + "px";
+				}
+				
+				if(s2 < divEle.offsetHeight){
+					divEle.style.top = window.innerHeight - divEle.offsetHeight  + "px";
+				}else{
+					divEle.style.top = e.clientY + "px";
+				}
+				//divEle.style.bottom = "0px";
+				//阻止默认行为的方式3
+				//return false;
+			}
+		</script>
+	</body>
+</html>

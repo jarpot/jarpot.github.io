@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let p = new Promise((resolve,reject)=>{
+            let a = 10;
+            if(a>8){
+                resolve('成功');
+            }else{
+                reject('失败');
+            }
+        })
+
+        /* p.then((succ)=>{
+            console.log(succ);
+        },(error)=>{
+            console.log(error);
+        }) */
+
+        //catch的函义就等同于  then中的第二个错误的函数
+        //从语义化的角度来说 用catch来标识 错误的回调函数。
+        //finally表示一定会被执行到的函数，不管状态如何 一定会执行
+        p.then((succ)=>{
+            console.log(succ);
+        }).catch((error)=>{
+            console.log(error);
+        }).finally(()=>{
+            console.log('一定会被执行的代码。');
+        })
+    </script>
+</body>
+</html>

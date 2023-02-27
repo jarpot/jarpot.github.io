@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <ul>
+           <!-- 
+               v-for="(item,index) in items"
+                    item 就是变量名 表示 数组中的每一项元素
+                    index 就是下标
+                    items 就是当前vue实例对象中你要遍历的那个 数组
+            -->
+           <li v-for="(item,index) in list">{{item}}下标为{{index}}</li>
+       </ul>
+       <!-- 遍历对象
+            v-for="(val,ley,i) in user"
+            val 就是值
+            key 就是属性名
+            i 下标
+        -->
+       <ul>
+           <li v-for="(val,key,i) in user">属性名{{key}},属性值{{val}}</li>
+       </ul>
+       <!-- 遍历字符串 -->
+       <ul>
+        <li v-for="(item,i) in msg">{{item}},下标{{i}}</li>
+    </ul>
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            list:['a','b','c','d'],
+            user: { "name": '张三', "age": 18, "address": '郑州' },
+            msg:'hello'
+        }
+    })
+</script>
+</html>

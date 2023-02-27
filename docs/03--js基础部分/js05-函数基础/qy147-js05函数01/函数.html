@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- <button onclick="aaa()">点我1</button>
+		<button onclick="aaa()">点我2</button>
+		<p onclick="aaa()">发多少个的风格的</p> -->
+		<div id="div">你好哈哈哈</div>
+		<script type="text/javascript">
+			//函数的定义
+			/**
+			 * function 函数名(参数 可选){
+					代码块;
+					return ;//可选
+				}
+				function 定义函数的关键字 
+				aaa		函数的名字 ====》参照变量命名规范
+				()      传递参数用的/必须要有
+				{}		函数体
+			 */
+			/* function aaa(){
+				alert("这是一个函数的执行！");
+				//alert();
+			} */
+			/**
+			 * 函数的调用：
+			 * 		方式一：函数名();
+			 * 			一般使用这种方式调用函数时，不是直接写，而是在另一个函数的内部调用此函数。
+			 * 		方式二：跟DOM/标签对象绑定调用   最常用的方式
+			 * 			通过事件 把函数跟 DOM元素绑定  通过html标签中添加onclick = "aaa()";
+			 * 				事件：onclick 单击事件
+			 * 		方式三：匿名函数
+			 * 			给DOM元素绑定匿名函数
+			 * 			1.先获取到我们需要操作的DOM元素/对象
+			 * 				document.getElementById("div") ;通过id值 从文档中获取标签/元素对象
+			 * 				[object HTMLDivElement]
+			 * 			2.添加 onclick事件
+			 */
+			//aaa();
+			/* var aaa = function(){
+				alert(1111);
+			}
+			aaa(); */
+			//alert(document.getElementById("div"));
+			// get获取   /   set设置
+			//document.getElementById("div") ;通过id值 从文档中获取标签/元素对象
+			// 文档对象 . 的 
+			document.getElementById("div").onclick = function(){
+				alert("匿名函数触发了");
+			}
+		</script>
+	</body>
+</html>

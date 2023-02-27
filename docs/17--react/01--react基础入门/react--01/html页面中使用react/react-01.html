@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+<!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js"。-->
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script>
+    //需求：就是在div#app中添加一个h1标签
+    //1.根据React提供的方法，创建一个虚拟的h1标签
+    /*
+        原生的js：我们的创建标签的三步走：
+            1.创建
+            2.美化
+                样式设置，内容设置，属性设置
+            3.添加
+        React.createElement(参数1,参数2,参数3...)
+            参数1：就是要创建的标签类型
+            参数2：就是对该标签的属性配置 是一个对象类型
+            参数3：就是该标签中的子节点,可以使用数组表示
+    */
+    //需求：向 p标签中添加一个按钮
+    /* let btn = React.createElement('button',{
+        key:'1111',
+        className:'btn',
+        onClick(){
+            alert('我是一个按钮')
+        }
+    },'点我')
+
+    let pele = React.createElement('p',{
+        key:'2222',
+        id:'aaa',
+        className:'bbb',
+        style:{"color":"red","fontFamily":"楷体"}
+    },['我是p标签中的内容',btn]) */
+    let name="张三";
+    let ele = <h1>hello,{name}</h1>;
+
+    //2.把创建好的虚拟DOM显示在页面的div#app中
+    /*
+        ReactDOM.render(参数1，参数2)
+            参数1 就是你要渲染的那个元素
+            参数2 就是你要渲染的位置(容器)
+    */
+    //渲染DOM结构(渲染函数只会执行一次 类似于=---》vue中页面需要一个根容器)
+    ReactDOM.render(ele,document.getElementById('app'))
+</script>
+</html>

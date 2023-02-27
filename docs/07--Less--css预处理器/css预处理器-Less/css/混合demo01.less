@@ -1,0 +1,27 @@
+//抽取的公共的类的代码===>混合
+.juzhong(@w:50px,@h:50px,@co:pink){
+    width: @w;
+    height: @h;
+    border: 1px solid @co;
+    text-align: right;
+    line-height: @h;
+    background-color: @co;
+}
+
+
+.box1{
+    .juzhong(100px,100px,red);
+}
+
+.box2{
+    .juzhong(200px,200px,green);
+}
+
+.box3{
+    .juzhong(300px,300px,blue);;
+}
+
+.box4{
+    //直接按照定义的变量的名字进行传递。
+    .juzhong(@co:skyblue);
+}

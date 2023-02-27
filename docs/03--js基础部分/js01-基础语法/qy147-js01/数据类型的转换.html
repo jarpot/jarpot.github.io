@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//var a = 10;
+			//var b = '10';
+			/**
+			 * + :
+			 * 		1.如果进行运算的两个变量都是 数字类型，此时进行数学加法运算
+			 * 		2.如果进行运算的两个变量其中一个是字符串类型，此时进行拼接运算
+			 */
+			//alert(a+b);
+			/* var a = 10 + 10 + 10 + "10";//3010
+			alert(a);
+			var b = "10" + 10 + 10 + 10;//10101010  
+			alert(b);
+			var c = 10 + 10 + "10" + 10;//201010
+			alert(c); */
+			
+			//类型转换
+			var a = 10;
+			var b = "10abc";
+			//NaN  not a number不是一个数字
+			/**
+			 * 如果使用Number()转字符串，只能转纯数字的字符串
+			 * 如果使用Number()转boolean   true=1  false=0
+			 * 如果使用Number()转null   null = 0
+			 * 如果使用Number()转undefined  NaN
+			 * 
+			 * 
+			 * parseInt();
+			 * 	取整数部分  可以转以数字开头的字符串
+			 * parseFloat();
+			 */
+			
+			alert(parseFloat("5.5"));
+		</script>
+	</body>
+</html>

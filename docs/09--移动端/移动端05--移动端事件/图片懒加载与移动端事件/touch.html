@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum=1.0,minimum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./touch.js"></script>
+    <!-- <script src="./hammer.min.js"></script> -->
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <ul>
+        <li>你好哈啊哈1<span>你你你你</span></li>
+        <li>你好哈啊哈2<span>你你你你</span></li>
+        <li>你好哈啊哈3<span>你你你你</span></li>
+        <li>你好哈啊哈4<span>你你你你</span></li>
+        <li>你好哈啊哈5<span>你你你你</span></li>
+    </ul>
+</body>
+<script>
+    var liArr = document.getElementsByTagName('li');
+    for (let i = 0; i < liArr.length; i++) {
+        touch.on(liArr[i],'tap',function(){
+            console.log(this);
+        });
+    }
+    /*
+        touch.on(1,2,3);
+            1.触发事件的DOM对象
+            2.触发的事件类型
+            3.具体的回调函数
+    */
+    //var box = document.getElementsByClassName('box')[0];
+    /*  touch.on( box,'tap' , function(){
+         alert('111111');
+     }); */
+
+    //滑动 不分方向
+    /* touch.on( box,'swipe' , function(){
+        box.style.backgroundColor = 'yellow';
+    }); */
+    /* touch.on( box,'swipeleft' , function(){
+        box.style.backgroundColor = 'yellow';
+    });
+    touch.on( box,'swiperight' , function(){
+        box.style.backgroundColor = 'blue';
+    });
+    touch.on( box,'swipeup' , function(){
+        box.style.backgroundColor = 'green';
+    });
+    touch.on( box,'swipedown' , function(){
+        box.style.backgroundColor = 'pink';
+    }); */
+
+    //hammer.js使用
+    /* var hammertime = new Hammer(document.getElementsByClassName('box')[0]);
+    //为该dom元素指定触屏移动事件
+    hammertime.on("tap", function (ev) {
+        //控制台输出
+        alert(11111)
+    }); */
+</script>
+
+</html>

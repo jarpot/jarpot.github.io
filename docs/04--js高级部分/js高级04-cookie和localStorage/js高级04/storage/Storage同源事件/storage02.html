@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="h1"></h1>
+    <button onclick="aaa()">点我</button>
+    <script>
+        function aaa(){
+            localStorage.setItem("name","王五");
+        }
+        //给window对象绑定一个storage事件   Web Storage(HTML 5 Web 存储)更新时触发
+        window.addEventListener('storage',function(){
+            h1.innerText += localStorage.getItem('name');
+        },false);
+    </script>
+</body>
+</html>

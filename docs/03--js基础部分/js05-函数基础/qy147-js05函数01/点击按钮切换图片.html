@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<img id="img" src="drink/drink_0.jpg" width="500px" />
+		<button onclick="changeImg()">点我</button>
+		<script type="text/javascript">
+			/**
+			 * 全局变量：
+			 * 局部变量
+			 */
+			var i = 1;
+			function changeImg(){
+				//alert(11);
+				/*点击按钮 切换图片
+				本质：就是点击按钮修改  img标签的src的属性值
+					1.先获取标签对象 img
+				*/
+				var imgEle = document.getElementById("img");
+				imgEle.src = "drink/drink_"+ i +".jpg";
+				i++;
+				if(i==81){
+					i=0;
+				}
+			}
+		</script>
+	</body>
+</html>

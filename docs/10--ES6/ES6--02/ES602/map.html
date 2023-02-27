@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //map的使用跟 set一样。
+        //map的结构跟 set不一样  map是 正儿八经 键值对形式
+        //map中的key和value都不限制数据类型 
+        let map = new Map();
+
+        map.set('name','张三');
+        map.set(1,19);
+        map.set('address','郑州');
+        map.set(true,'123');
+        let arr = [1,2];
+        map.set(arr,{name:'李四',classI:'qy147'})
+        console.log(map);
+
+        //map.get(key); 根据Key值获取 对应的vlaue值
+        /* console.log(map.get(arr));
+
+        console.log([1,2]===[1,2]);//?false
+
+        console.log(map.has(100)); */
+
+        console.log(map.keys());
+        console.log(map.values());
+        console.log(map.entries());
+    </script>
+</body>
+</html>

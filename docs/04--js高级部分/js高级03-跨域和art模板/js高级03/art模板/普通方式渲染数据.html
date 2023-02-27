@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="container">
+        <!-- <li>
+            <img class="img" src="http://img4.cache.netease.com/photo/0001/2017-07-14/CP9QN0396VVV0001.jpg" alt="">
+            <p>鄱阳湖</p>
+        </li> -->
+    </ul>
+    <script>
+        var ajax = new XMLHttpRequest() || new ActiveXObject(Microsoft.XMLHTTP);
+        ajax.open("get", "./数据.json", true);
+        ajax.send();
+        ajax.onreadystatechange = function () {
+            if (ajax.readyState == 4) {
+                if (ajax.status == 200) {
+                    //把查到的json字符串转成 json对象
+                    var json_ = JSON.parse(ajax.responseText);
+                    add(json_);
+                }
+            }
+        }
+
+        function add(data) {
+            var lis = data.list;
+            var str = "";
+            for (var i in lis) {
+                //console.log(lis[i].imgurl);
+                str+= "<li>";
+                str+= "<img  src='"+lis[i].imgurl+"'>";
+                str+= "<p>"+lis[i].imgtitle+"</p>";
+                str+= "</li>";
+            }
+            container.innerHTML = str;
+        }
+    </script>
+</body>
+
+</html>

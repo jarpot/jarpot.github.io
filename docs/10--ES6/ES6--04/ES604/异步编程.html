@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //事件轮循机制  EventLoop
+        //常见的异步操作：DOM事件绑定  定时器  ajax...
+        /* setTimeout(()=>{
+            console.log(111);
+        },200)
+
+        console.log(222); */
+
+        //ajax操作
+        //1.创建对象
+        let ajax_ = new XMLHttpRequest();
+
+        //2.创建连接
+        /*
+            ① 请求方法
+            ② 请求的url
+            ③ 同步/异步  默认是 异步
+        */
+
+        /*场景模拟：
+            ①现在 我们向后台发送一次请求需要查到 学生的id编号信息。
+            ②拿到学生的id信息后，我们又根据id再次向后台发送请求查询 该id对应的classid
+            ③拿到classid后我们又需要向后台发送请求 根据 id和classid 查询 subjectid(科目id)
+            。。。。。
+            用ajax操作如何完成以上步骤？
+                就像俄罗斯套娃 非常难受。代码的可读性非常差，容易造成思维混乱。
+            
+            使用promise异步编程来解决问题。
+                可以把异步编程在形式上变成同步操作。增强代码的可读性。代码也会更加简化。
+        */
+
+        ajax_.open('get','./111',true);
+        //3.发送请求  如果是  get请求  括号中没有数据  如果是post请求 需要把所有参数放到 send()中
+        ajax_.send();
+        ajax_.send('username=张三&pass=12345');
+        //4.接收响应（这个第四步代码 只需要放在第一步的后边都可以）
+        ajax_.onreadystatechange = function(){
+            //进行状态码的判断 readyState 0 1 2 3 4
+            if(ajax_.readyState==4){
+                if(ajax_.status==200){
+                    //请求成功  接收的是 字符串类型的数据
+                    //我们需要提前跟后台人员商量好  要给我返回 json格式的字符串。
+                    //通过JSON.parse()将json字符串转换成  json对象
+                    ajax_.responseText();
+                }else{
+                    //请求失败
+                    
+                }
+            }
+        }
+
+        /*场景模拟：
+            ①现在 我们向后台发送一次请求需要查到 学生的id编号信息。
+            ②拿到学生的id信息后，我们又根据id再次向后台发送请求查询 该id对应的classid
+            ③拿到classid后我们又需要向后台发送请求 根据 id和classid 查询 subjectid(科目id)
+            。。。。。
+            用ajax操作如何完成以上步骤？
+                就像俄罗斯套娃 非常难受。代码的可读性非常差，容易造成思维混乱。
+            
+            使用promise异步编程来解决问题。
+                可以把异步编程在形式上变成同步操作。增强代码的可读性。代码也会更加简化。
+        */
+        //jquery完成 ajax使用
+        //面试题：什么是回调地狱？如何解决回调地狱问题？ Promise/async
+        //回调地狱
+        $.ajax({
+            type:'get/post',
+            url:'../dd',
+            data:'向后台发送的数据一般以 json对象或者json数组的形式向后台发送数据',
+            dataType:'json',//预期后台返回的数据格式 一般都是json
+            success(){
+                //请求成功 内部的ajax就表示外部请求成功后的回调函数。
+                $.ajax({
+                    success(){
+                        $.ajax({
+                            success(){
+
+                            }
+                        })
+                    }
+                })
+            },
+            async:true,//默认true表示异步  false就是同步
+            error(){
+                //请求失败
+            }
+        })
+    </script>
+</body>
+</html>

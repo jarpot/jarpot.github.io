@@ -1,0 +1,21 @@
+<!--pages/todoList/todoList.wxml-->
+<!-- 点击 跳转页面到新增页面 -->
+<view class='top' bindtap="goAddTodo">
+  +新增待办
+</view>
+<view  
+  class="content" 
+  wx:for="{{list}}" 
+  wx:key="id"
+  data-id="{{item.id}}"
+  bindtap="finished"
+  >
+  <icon 
+    class="icon-small" 
+    type="{{item.isFinish ? 'success' : 'circle'}}" 
+    size="23" 
+    color="gray"
+    >
+  </icon>
+  <text class="{{item.isFinish ? 'active' : ''}}">{{item.text}}</text>
+</view>

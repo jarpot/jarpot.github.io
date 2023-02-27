@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <div>1111</div>
+    <script>
+        /*
+            $("选择器") 获取的是多个元素对象 伪数组 但是  在jquery内部封装的有遍历
+                */
+        //alert($("div").get(3));
+        //alert($("div")[3]);//[object HTMLDivElement] === >标准的原生js DOM对象
+        //alert($("div"));   //[object Object] =======》 jquery的对象模式
+       /*
+            原生的js对象和jquery对象的区别：
+                js对象只能使用原生js的属性和方法。
+                jq对象只能使用jq的属性和方法。
+            js对象和jquery对象的转换：
+                把js对象使用  $(js对象)包起来，就是jq对象
+                把jq对象使用  $("选择器")[下标]/$("选择器").get(下标) 就是 js对象
+         */
+        //js对象
+        var divEle = document.getElementsByTagName("div")[0];
+        alert(divEle);//[object HTMLDivElement]
+        alert( $(divEle));//[object Object]伪数组
+    </script>
+
+</body>
+
+</html>

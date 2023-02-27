@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="http://www.baidu.com" method="post">
+			邮箱：<input type="text" id="email" required="required"/><span id=""></span><br>
+			密码：<input type="password" id="pword" required="required"><span id=""></span><br>
+			<input type="submit" value="提交"/>
+		</form>
+		<script type="text/javascript">
+			//给表单绑定事件
+			document.getElementsByTagName("form")[0].onsubmit = function(){
+				//alert("111");
+				//对数据做校验
+				/**
+				 * 1.先判断内容是否是  null  或者 空字符串
+				 * 2.判断数据是否是标准的邮箱格式
+				 * 		3543534@qq.com
+				 * 		rtet455@sdfs.com
+				 * 		ssdf435@sdf4r.com.cn
+				 * 	判断是否含有@  和 .  @ 要在 .的前边
+				 */
+				var eVal = email.value;
+				var pwordVal = pword.value;
+				console.log(eVal,pwordVal);
+				//if(eVal!=null || eVal!=""){
+					//判断是否含有@  和 .    @ 要在 .的前边
+					/**
+					 * indexof("@")  有  第一次出现的下标   没有的化返回  -1
+					 * indexof(".")  
+					 * .的下标减去  @ 的下标 大于  1
+					 * 思考：用不用提前判断  是否存在  @  和  .
+					 * 需要先判断是否存在 @ . 
+					 */
+				if(eVal.indexOf("@")== -1 || eVal.indexOf(".")-eVal.indexOf("@") <= 1){
+					email.nextElementSibling.innerText = "邮箱格式错误";
+					return false;
+				}
+				
+				//密码要求 6-12位
+				if(pwordVal.length < 6 || pwordVal.length>12){
+					pword.nextElementSibling.innerText = "密码格式错误";
+					return false;
+				}
+				
+				return true;
+			}
+		</script>
+	</body>
+</html>

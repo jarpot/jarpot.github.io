@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="aaa()">点我</button>
+		<script type="text/javascript">
+			//斗鱼直播间弹幕轰炸
+			/**
+			 * 输入框中输入内容，点击发送按钮  
+			 * 我们需要自动的点击按钮  模拟自动点击   click();
+			 */
+			function aaa(){
+				//模拟一次点击
+				//setInterval(function(){
+					console.log("111");
+					document.getElementsByTagName("button")[0].click();
+				//},1000);
+			}
+			//斗鱼直播间弹幕轰炸  技术无罪！！！
+			setInterval(function(){
+			  hongzha.value = "你好哈哈哈，求封号";
+			  fasong.click();
+			},50);
+		</script>
+	</body>
+</html>

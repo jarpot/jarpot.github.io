@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//数组的查询操作
+			var arr = [34,56,21,32,77,54,13];
+			//找出指定 32 数据在数组中第一次的位置，把for循环倒着就是指定数据最后一次出现的位置
+			
+			//封装一个函数  查找指定数据在数组中第一次出现的位置。
+			/**
+			 * 函数封装三要素：
+			 * 		1.函数名     firstIndex
+			 * 		2.参数列表   
+			 * 				参数1：指定的数据
+			 * 				参数2：指定的数组
+			 * 		3.返回值
+			 * 				第一次出现的下标 i;
+			 */
+			function firstIndex(first,array){
+				for(var i=0;i<array.length;i++){
+					if(array[i]==first){
+						return i;
+					}
+				}
+			}
+		
+			/* var index = firstIndex(32,arr);
+			alert(index); */
+			//数组的新增操作 插入 把指定数据插入到数组的指定位置
+			// 在 77的前边插入一个 88
+			/**
+			 * 经过分析可得：
+			 * 		想在数组中插入一个数据，需要把插入位置 以后的数据，挨个向后移动一位。
+			 * 		还必须要倒着挪，正着挪会把数据覆盖掉。
+			 */
+			/* for(var i=arr.length-1;i>=4;i--){
+				//移位操作
+				arr[i+1] = arr[i];
+			}
+			//对原本的下标4的位置  做重新赋值
+			arr[4] = 88;
+			alert(arr); */
+			
+			//删除  需求把 77删除掉
+			for(var i=4;i<arr.length-1;i++){
+				arr[i] = arr[i+1];
+			}
+			//移位后把数组的长度 -1
+			arr.length = arr.length-1;
+			alert(arr);
+		</script>
+	</body>
+</html>

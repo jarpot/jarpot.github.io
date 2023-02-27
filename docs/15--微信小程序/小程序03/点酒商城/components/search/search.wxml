@@ -1,0 +1,3 @@
+<!--components/search/search.wxml-->
+<input class='inp' placeholder="请求输入搜索内容" type="text" bindinput="getValue"/>
+<button bindtap="sendVlaue">搜索</button>

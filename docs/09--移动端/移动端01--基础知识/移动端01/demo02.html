@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum=1.0,minimum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <script src=""></script>
+</head>
+
+<body>
+    <script>
+        var sUserAgent = navigator.userAgent.toLowerCase();
+
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        // 移动信息设备
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        //uc浏览器
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        //嵌入式电子设备
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        //是微软针对移动设备而开发的操作系统
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+            // 移动端浏览器 
+            document.write("phone");
+            //移动端浏览器
+            window.location.href = "https://m.jd.com/";
+            // if (curURL.indexOf("jd.com") != -1) {
+            //     window.location.href = "https://m.jd.com/";
+            // }
+        } else {
+            // PC端浏览器
+            window.location.href = "https://www.jd.com/";
+            //  if (curURL.indexOf("jd.com") != -1) {
+            // window.location.href = "https://www.jd.com/";
+            //   }
+        }
+    </script>
+</body>
+
+</html>

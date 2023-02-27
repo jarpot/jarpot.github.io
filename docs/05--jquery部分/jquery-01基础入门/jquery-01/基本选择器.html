@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <!-- <p></p>
+    <p></p>
+    <p></p> -->
+    <h1>这是一个h1</h1>
+    <h2 class="bbb">这是一个h2</h2>
+    <h3>这是一个h3</h3>
+    <h4>这是一个h4</h4>
+    <div id="aaa">法撒旦发生的
+        <p>第一个p标签1</p>
+        <p class="bbb">第一个p标签2</p>
+        <p>第一个p标签3</p>
+    </div>
+    <script>
+        //原生js
+        /* var div_ = document.getElementById("aaa");
+        alert(div_.innerText); */
+        /*
+            jquery获取对象的方式等同于  querySelector + querySelectorAll
+            用选择器获取对象要比 get系列更加灵活
+        */
+        /* var div_1 = document.querySelector("#aaa");
+        alert(div_1.innerText);
+        alert($("#aaa").text()); */
+        //标签选择器
+        //alert($("p").text());
+
+        //并集选择器
+        //$("h1,h2,h3,p").css('color','red');
+        //交集选择器 同时有p 又有 .bbb
+        $("p.bbb").css('color','red');
+    </script>
+</body>
+</html>

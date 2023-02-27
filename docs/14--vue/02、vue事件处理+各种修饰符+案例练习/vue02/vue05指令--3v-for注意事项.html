@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <ul>
+           <!-- 
+               :key 必须是唯一的，且不变的数据
+                    数据类型：数字/字符串
+                        一般使用id作为标识
+                        因为不管是前端还是后台，id都用来标识唯一。
+            -->
+           <li v-for="(item,index) in list" :key="item.id" >
+               <input type="checkbox">{{item.content}}
+           </li>
+       </ul>
+       <!-- 需求：
+            点击button按钮 获取 输入的内容，把这个内容显示在 列表中
+                vue中不推荐直接操作DOM元素，那么只能操作 list数据
+                    根据分析：
+                        ① 我们现在要给button绑定点击事件 
+                        ② 获取input框的数据
+                        ③ 把获取的数据添加到list中  
+        -->
+       <input type="text" v-model="msg"><button v-on:click="add($event)">新增</button>
+    </div>
+</body>
+
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            list:[
+                {"id":1,"content":'你好哈哈哈'},
+                {"id":2,"content":'你好呵呵呵'},
+                {"id":3,"content":'你好嘿嘿嘿'},
+                {"id":4,"content":'你好啦啦啦'}
+            ],
+            msg:'',
+            id:4 
+        },
+        methods: {
+            add(e){
+                e.target.style.backgroundColor = 'red'
+                console.log(e.target)
+                //创建一个对象
+                let obj = {
+                    "id":++this.id,
+                    "content":this.msg
+                }
+                //把obj追加到list中
+                this.list.unshift(obj)
+            }
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="container">
+        <!-- <li>
+            <img class="img" src="http://img4.cache.netease.com/photo/0001/2017-07-14/CP9QN0396VVV0001.jpg" alt="">
+            <p>鄱阳湖</p>
+        </li> -->
+    </ul>
+    <script src="./template-web.js"></script>
+    <!-- 此时type的值  text后边的  只要不是 javaScript都可以 -->
+    <script type="text/html" id="tpl">
+        <!-- each表示循环语法 -->
+        {{each data.list}}
+            <li>
+                <!-- 如果是遍历数组  $value就代表数组中的每一个数据  $index 就表示每一个数据的下标 -->
+                {{if $value.imgtitle}}
+                    <h1>{{$value.imgtitle}}</h1>
+                {{/if}}
+                <img src={{$value.imgurl}} alt="">
+            </li>
+        {{/each}}
+   </script>
+    <script>
+        var ajax = new XMLHttpRequest() || new ActiveXObject(Microsoft.XMLHTTP);
+        ajax.open("get", "./数据.json", true);
+        ajax.send();
+        ajax.onreadystatechange = function () {
+            if (ajax.readyState == 4) {
+                if (ajax.status == 200) {
+                    //把查到的json字符串转成 json对象
+                    var json_ = JSON.parse(ajax.responseText);
+                    //通过这里读取模板
+                    var html = template('tpl', {
+                        data: json_//从外部读取的数据
+                    })
+                    var container = document.querySelector('#container');
+                    //把模板的值 赋给  innerHTML属性
+                    container.innerHTML = html;
+                }
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

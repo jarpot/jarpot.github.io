@@ -1,0 +1,20 @@
+<!-- 头部搜索框 -->
+<search bindsValue="getSearchValue" sonValue="{{sonValue}}"></search>
+<!-- 商品列表展示页 -->
+<view>
+  <view class="wine-list" wx:for="{{wineData}}" wx:key="commodity_code">
+    <view class="wine-img">
+      <image src="{{baseImgUrl}}{{item.picture_url}}"></image>
+    </view>
+    <view class="wine-detail">
+      <view class="wine-title-top">{{item.commodity_name}}</view>
+      <view class="wine-title-bottom">
+        <view class="left">价格{{item.commodity_price}}￥</view>
+        <view class="right">销量 {{item.commodity_sales}}</view>
+      </view>
+    </view>
+  </view>
+  <view wx:if="{{!isShowBottom}}" class="weui-loading"></view>
+  <view class="bottom" wx:else="{{isShowBottom}}">我也是有底线的哦</view>
+</view>
+

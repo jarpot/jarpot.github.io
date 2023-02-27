@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			fieldset{
+				width: 1000px;
+			}
+			tr{
+				height: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<fieldset id="">
+			<legend>购物车</legend>
+			商品名称：<input type="text" id="goodsName"/>
+			商品价格：<input type="text" id="goodsPrice"/>
+			商品数量：<input type="text" id="goodsNum"/><br>
+			<button type="button" onclick="add()">新增</button>
+			<button type="button" onclick="delChk()">删除选中行</button>
+			<table border="1" cellspacing="" cellpadding="" width="900px">
+				<thead>
+					<tr>
+						<th>全选<input type="checkbox" id="allChk" onclick="chkAll(this)"></th>
+						<th>商品名称</th>
+						<th>商品价格</th>
+						<th>商品数量</th>
+						<th>商品总价</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody id="tbody" align="center"></tbody>
+			</table>
+			<div>商品的总价是：<span id="sump">0</span>￥</div>
+		</fieldset>
+		
+		<script type="text/javascript">
+			/**
+			 * 真正意义的新增
+			 * 分析思路：
+			 * 		目的：点击按钮，
+			 * 				1.先判断购物车中是否为空，如果没有商品直接新增，
+			 * 				2.如果有商品，需要做进一步的逻辑判断。
+			 * 					判断添加的商品，在购物车中是否存在？
+			 * 						抛出问题：如何判断？
+			 * 							借助商品的名字做判断，意味着我们要从购物车中取出已经存在的商品名称。
+			 * 								抛出问题：如何取出商品的名字？给商品名称那个td添加一个类名，通过类名获取
+			 * 						2.1 如果存在
+			 * 						2.2 如果不存在
+			 */
+			function add(){
+				/*先判断购物车中是否为空
+					问题：如何判断？ 判断tbody中是否有子节点？ children
+						tbody.children.length==0
+				*/
+				if(tbody.children.length==0){
+					//直接新增一行
+					addRow();
+				}else{
+					// 给商品名称那个td添加一个类名，通过类名获取
+					var tdArr = document.getElementsByClassName("gName");
+					//定义一个变量 state  假设购物车中不存在相同商品。第三方变量
+					var state = false;
+					for (var i = 0; i < tdArr.length; i++) {
+						if(tdArr[i].innerText == goodsName.value){
+							//如果存在相同商品给state 赋值为  true
+							state = true;
+							/**
+							 * 1.相同商品已经存在了，后续的for循环已经没有必要再去执行了。
+							 * 2.降低服务器压力
+							 */
+							break;
+						}
+					}
+					//如果state==true代表存在相同的商品
+					if(state==true){
+						/**
+						 * 抛出问题：
+						 * 		要把相同的那个商品数量和总价改变，如何确定相同的商品是购物车中的哪一个？
+						 * 		上边的for循环中的i就表示 那个相同的商品的下标 
+						 */
+						var tr = tdArr[i].parentNode.children;
+						//1.商品的数量 +1
+						//2.总价重新计算
+						tr[4].innerText = tr[2].innerText * ++tr[3].children[1].value;
+					}else{
+						addRow();
+					}
+				}
+			}
+		
+			//新增  使用  字符串拼接发
+			function addRow(){
+				
+				var trEle = document.createElement("tr");
+				//第一个td
+				var str = "<td><input type='checkbox' class='chk' onclick='revChk()'></td>";
+				//第二个td
+				str+= "<td class='gName'>"+goodsName.value+"</td>";
+				//第三个td
+				str+= "<td>"+goodsPrice.value+"</td>";
+				//第四个td
+				str+="<td><button onclick='jia(this)'>+</button><input type='text' value='"+goodsNum.value+"'/><button onclick='jian(this)'>-</button></td>";
+				//第五个td
+				str+="<td>"+goodsPrice.value*goodsNum.value+"</td>";
+				//第六个td
+				str+="<td><button onclick='delRow(this)'>删除</button></td>";
+				trEle.innerHTML = str;
+				
+				tbody.appendChild(trEle);
+			}
+			
+			//封装删除单行的函数
+			function delRow(btn){
+				btn.parentNode.parentNode.remove();
+				sumPrice();
+			}
+			
+			//加号按钮
+			/**
+			 * 点击+号按钮  数量+1  总价重新赋值
+			 */
+			function jia(btn){
+				//数量+1
+				//总价重新计算
+				//btn.nextElementSibling.value++;
+				
+				btn.parentNode.nextElementSibling.innerText = ++btn.nextElementSibling.value*btn.parentNode.previousElementSibling.innerText;
+				sumPrice();
+			}
+			//减号  按钮
+			function jian(btn){
+				if(btn.previousElementSibling.value<=1){
+					var b = confirm("你确定要删除吗？");
+					if(b==true){
+						//btn.parentNode.parentNode.remove();
+						delRow(btn);
+					}
+				}else{
+					btn.parentNode.nextElementSibling.innerText = --btn.previousElementSibling.value*btn.parentNode.previousElementSibling.innerText;
+				}
+				
+				sumPrice();
+			}
+			
+			/*全选功能
+				分析:要让购物车中所有的复选框的checked状态要跟  全选框的checked 状态保持一致。
+				取出 全选框的checked状态，赋值给 购物车中的每一个复选框。
+			*/
+			function chkAll(inpChk){
+				//取出购物车中所有的复选框
+				var chkArr = document.getElementsByClassName("chk");
+				for (var i = 0; i < chkArr.length; i++) {
+					chkArr[i].checked = inpChk.checked;
+				}
+				
+				sumPrice();
+			}
+			
+			/*
+				反选：当购物车中的所有复选框都被选中时，全选框也被选中，只要有一个没选中，全选框也不会被选中。
+				分析：由下边的复选框控制上边的全选框。
+					函数要给谁绑定？需要给 下边的每一个复选框绑定
+			*/
+			function revChk(){
+				//要给购物中所有的复选框进行遍历判断 看其中是否存在 没有被选中的框
+				var chkArr = document.getElementsByClassName("chk");
+				var b = false;//假设不存在
+				for (var i = 0; i < chkArr.length; i++) {
+					if(chkArr[i].checked==false){
+						b = true;
+						break;
+					}
+				}
+				
+				if(b==true){//存在没有被选中的框
+					allChk.checked = false;
+				}else{
+					allChk.checked = true;
+				}
+				sumPrice();
+			}
+			
+			//删除选中行
+			function delChk(){
+				//获取购物车中所有的复选框
+				var chkArr = document.getElementsByClassName("chk");//动态获取
+				//var chkArr = document.querySelectorAll(".chk");
+				
+				for (var i = chkArr.length-1; i >=0; i--) {
+					if(chkArr[i].checked){
+						chkArr[i].parentNode.parentNode.remove();
+					}
+				}
+				sumPrice();
+			}
+			
+			//计算总价
+			function sumPrice(){
+				//获取所有的复选框
+				var chkArr = document.getElementsByClassName("chk");
+				var sum = 0;
+				for (var i = 0; i < chkArr.length; i++) {
+					//alert(chkArr[i].parentNode.par);
+					if(chkArr[i].checked){
+						sum+=Number(chkArr[i].parentNode.parentNode.children[4].innerText);
+					}
+				}
+				sump.innerText = sum;
+			}
+			
+			//新增功能
+			/* function add(){
+				var trEle = document.createElement("tr");
+				//造第一个td
+				var td1 = document.createElement("td");
+				var inpChk = document.createElement("input");
+				inpChk.type = "checkbox";
+				td1.appendChild(inpChk);
+				
+				//造第二个td
+				var td2 = document.createElement("td");
+				td2.innerText = goodsName.value;
+				
+				//造第三个td
+				var td3 = document.createElement("td");
+				td3.innerText = goodsPrice.value;
+				
+				//造第四个td
+				var td4 = document.createElement("td");
+				var jia_btn = document.createElement("button");
+				jia_btn.innerText = "+";
+				var inp = document.createElement("input");
+				inp.value = goodsNum.value;
+				var jian_btn = document.createElement("button");
+				jian_btn.innerText = "-";
+				td4.appendChild(jia_btn);
+				td4.appendChild(inp);
+				td4.appendChild(jian_btn);
+				
+				//造第五个td
+				var td5 = document.createElement("td");
+				td5.innerText = goodsPrice.value*goodsNum.value;
+				
+				//造第六个td
+				var td6 = document.createElement("td");
+				var delBtn = document.createElement("button");
+				delBtn.innerText = "删除";
+				td6.appendChild(delBtn);
+				
+				//把所有造好的td放入  tr中
+				trEle.appendChild(td1);
+				trEle.appendChild(td2);
+				trEle.appendChild(td3);
+				trEle.appendChild(td4);
+				trEle.appendChild(td5);
+				trEle.appendChild(td6);
+				
+				//在把造好tr放入tbody中
+				tbody.appendChild(trEle);
+			} */
+		</script>
+	</body>
+</html>

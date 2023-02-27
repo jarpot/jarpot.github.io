@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let data = {
+				name:'张三',
+				age:18
+			}
+            //这种方式 会造成死循环
+			/* Object.defineProperty(data,'name',{
+				get(){
+					return data.name
+				},
+				set(val){
+					data.name = val
+				}
+			})
+			console.log(data);
+			data.name = 'Lis' */
+			
+			//定义构造函数 Observer 观察者
+			function Obs(obj){
+				/* this.name = obj.name;
+				this.age = obj.age; */
+				let keys = Object.keys(obj)
+				keys.forEach(k=>{
+					Object.defineProperty(this,k,{
+						get(){
+                            console.log(`${k}被访问了`)
+							return obj[k]
+						},
+						set(val){
+							console.log(`${k}被修改了`)
+							obj[k] = val
+						}
+					})
+				})
+			}
+            //创建Obs构造函数的实例对象 并把要监测的 data数据对象 传入
+            let obs = new Obs(data)
+            //把定义好的数据监测对象赋值给data本身和vue实例对象
+			let vm = data = obs
+            
+			/* data.name = '王五'
+			data.age = 19 */
+		</script>
+	</body>
+</html>

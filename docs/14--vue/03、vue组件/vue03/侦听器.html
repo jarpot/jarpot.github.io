@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+    <script src="./lib/axios.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="user.name">
+        <input type="text" v-model="user.age">
+    </div>
+</body>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            msg:'',
+            user:{
+                name:'张三',
+                age:18
+            }
+        },
+        computed:{
+            //计算属性要调用才能执行
+            changeMsg(){
+                return this.msg+1
+            }
+        },
+        //所有的侦听器都定义在这里
+        //侦听器中函数的名字就是要侦听的属性的名字
+        //函数中有两个参数，第一个是改变后的新数据，第二个是变化前的老数据
+        watch: {
+            //函数侦听器
+            /* msg(newVal,oldVal){
+                console.log(newVal,oldVal)
+            } */
+            //方式一：侦听的是整个user对象
+            /* user:{
+                handler(newVal){
+                    console.log(newVal.name,newVal.age)
+                },
+                //页面加载 立即执行一次
+                immediate:true,
+                //深度侦听
+                deep:true
+            }, */
+            //方式二：单独侦听某一个属性
+            'user.name'(newVal){
+                //console.log(newVal)
+                //判断用户名是否被占用
+            
+                axios.get('http://127.0.0.1:8080/register?name='+newVal).then((resp)=>{
+                    console.log(resp.data);
+                })
+            
+            }
+        }
+    })
+</script>
+</html>

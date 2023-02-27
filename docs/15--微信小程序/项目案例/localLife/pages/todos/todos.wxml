@@ -1,0 +1,8 @@
+<!--pages/todos/todos.wxml-->
+<view class="max">
+  <text >新增待办事项</text>
+  <view>
+    <input type="text" focus bindinput="getInValue" placeholder="请输入待办任务"/><br />
+    <button bindtap="send">新增</button>
+  </view>
+</view>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="bbb()">刷新</button>
+		<form action="" method="get">
+			<input type="text" name="user" id="" value="" />
+			<input type="submit" value=""/>
+		</form>
+		<button onclick="aaa()">点我</button>
+		<a href="#bbb">点我11111</a>
+		<script type="text/javascript">
+		/**
+		 * url ：代表路径
+		 * http://127.0.0.1:80/day01/demo01?username=张三&password=123#锚点名称
+		 * http://  网络传输协议  超文本传输协议
+		 * IP地址+端口号====域名
+		 * 127.0.0.1(域名) （本机的ip） IP地址   作用：在网络环境中 定位主机
+		 * 80        端口号      作用：通过IP地址定位主机后，通过端口号定位  服务(应用程序)
+		 * /day01/demo01       	资源路径(确定要访问 服务器的哪个程序)
+		 * ？  					路径与 数据(从前台发送到后台的数据 get请求才有)的分隔符
+		 * <input type="text" name='username'>
+		 * username=张三&password=123 要发送到后台的数据
+		 * #aaa					锚点部分
+		 */
+			function aaa(){
+				/* console.log(window.location.href);
+				//window.location.href;
+				console.log(window.location.port);
+				
+				console.log(window.location.search);
+				console.log(window.location.host); */
+				
+				//有历史的  跳转指定页面
+				//window.location.href = "http://www.baidu.com";
+				//跳转指定页面   没有历史记录
+				//window.location.replace("http://www.jd.com");
+				//有历史 跳转指定页面 
+				window.location.assign("http://www.jd.com");
+			}
+			
+			function bbb(){
+				//刷新页面
+				window.location.reload();
+			}
+		</script>
+	</body>
+</html>

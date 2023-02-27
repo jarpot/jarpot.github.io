@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <form action="" method="get" id="form1">
+        <input type="text" value="你好哈哈" name="username" id="">
+        <select name="sec" id="">
+
+        </select>
+        <textarea name="aaa" id="" cols="30" rows="10"></textarea>
+        <!-- 
+            正常情况下 button是一个普通的按钮  没有提交作用
+            但是写在表单中 ===》 type=submit 具有了提交的作用
+         -->
+        <button>提交</button>
+    </form>
+    <form action="" method="get" id="form2">
+        <input type="text" name="username" id="">
+        <!-- <input type="image" src=""> -->
+        <input type="file">
+
+        <select name="sec" id="">
+
+        </select>
+        <textarea name="aaa" id="" cols="30" rows="10"></textarea>
+        <!-- 
+            正常情况下 button是一个普通的按钮  没有提交作用
+            但是写在表单中 ===》 type=submit 具有了提交的作用
+         -->
+        <button>提交</button>
+    </form>
+    <script >
+        //:input 直接使用选择当前页面中所有的表单元素。
+        //#form1 :input表示选择#form1中所有的表单元素。
+        //alert($("#form1 :input").length);
+
+        alert($("#form1 :text").val());
+    </script>
+</body>
+</html>

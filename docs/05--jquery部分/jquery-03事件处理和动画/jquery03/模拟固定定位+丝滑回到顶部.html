@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+        .box {
+            width: 200px;
+            height: 4000px;
+            background-color: red;
+        }
+
+        .aaa {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            top: 600px;
+            left: 1200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="aaa">回到顶部</div>
+</body>
+<script>
+    //1.先以绝对定位实现 固定定位的效果
+    //元素距离 文档顶部的top距离 = 样式表设置的初始top值 + 文档滚动的scrollTop()值
+    var t = $('.aaa').position().top;
+    $(window).scroll(function () {
+        var len = $(window).scrollTop() + t;
+        //console.log(len);
+        $('.aaa').offset({ top: len });
+    })
+
+    //2.点击div回到顶部
+    //$(".aaa").click(function () {
+        //瞬间到顶
+        //$(window).scrollTop(0);
+
+        //参数分析
+        /*
+            总距离
+            间隔时间
+            总时间 
+        间隔的距离：
+            总距离/（总时间/间隔时间）
+
+            一次定时器后的剩余距离 = 总距离-=间隔距离
+
+            条件：定时器什么时候停止？
+            剩余距离<=0时 停止
+        */
+        //总距离  文档滚动的距离 $(window)===$(document)
+        /* var distance = $(window).scrollTop();
+        //间隔时间 50ms
+        var step_time = 50;
+        //总时间  3000ms
+        var total_time = 500;
+
+        //间隔距离
+        var step_px = distance / (total_time / step_time);
+
+        //定时器
+        var timer = setInterval(function () {
+            //每一次定时器 减少 scrollTop的值 
+            distance -= step_px;
+            //停止定时器
+            if (distance <= 0) {
+                //纠正距离为0
+                distance = 0;
+                clearInterval(timer);
+            }
+            //改变滚动条的距离
+            $(window).scrollTop(distance);
+        }, step_time);
+    }) */
+
+    $('.aaa').click(function(){
+        $('html,body').animate({
+            scrollTop:'0px'
+        },800)
+    })
+</script>
+
+</html>

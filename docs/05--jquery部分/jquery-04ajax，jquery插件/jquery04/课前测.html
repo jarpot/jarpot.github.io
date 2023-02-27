@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    /*
+        绑定事件的三步走：
+            1.确定目标对象  给谁绑
+            2.确定事件类型  绑什么类型
+            3.具体的操作
+    */
+    //在.box上 按下鼠标
+    jQuery('.box').mousedown(function(event){
+        var ox = event.offsetX;
+        var oy = event.offsetY;
+
+        //移动事件 给 文档对象 $(document)
+        $(document).mousemove(function(event){
+            //当鼠标移动时，取出鼠标的坐标  赋给 .box框
+            //通过事件对象取出鼠标的实时坐标  
+            var x = event.clientX-ox;
+            var y = event.clientY-oy;
+
+            //给xy设置4个方向的临界值
+            if(x<=0){
+                x=0
+            }
+            if(y<=0){
+                y=0
+            }
+
+            //可移动的最大宽度
+            var maxW = $(document).width() - $('.box').width();
+            if(x>=maxW){
+                x= maxW
+            }
+
+            //可移动的最大高度
+            var maxH = $(document).height() - $('.box').height();
+            if(y>=maxH){
+                y= maxH
+            }
+            //怎么改.box的位置
+            $('.box').offset({top:y,left:x});
+        })
+
+        $('.box').mouseup(function(){
+            $(document).off('mousemove');
+        })
+    })
+</script>
+</html>

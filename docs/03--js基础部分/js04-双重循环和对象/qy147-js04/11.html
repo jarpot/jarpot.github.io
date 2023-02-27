@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- <input type="text" placeholder="请输入一个数字"><button>点击猜一猜</button> <br>
+		结果：<input type="text"> -->
+		<button >按钮1</button>
+		<button >按钮2</button>
+		<button >按钮3</button>
+		<script type="text/javascript">
+			/* function aaa(...value){
+				alert(arguments[1]);
+			}
+			aaa(1,2,3); */
+			/* function CreatePerson(name,age,address,food){
+				this.name = name;
+				this.age = age;
+				this.address = address;
+				this.food = food;
+				this.eat = function(){
+					console.log(name+"喜欢吃"+food);
+				}
+				return this;
+			}
+			var p1 = new CreatePerson("张三",18,'郑州',"面包");
+			console.log(p1);
+			p1.eat();
+			var p2 = new CreatePerson("李四",19,'武汉');
+			console.log(p2.name); */
+			
+			/* function CreateObjectStu(name,age,address){
+				var s = new Object();
+				s.name = name;
+				s.age = age;
+				s.address = address;
+				return s;
+			}
+			
+			CreateObjectStu(); */
+			/* var btns = document.getElementsByTagName("button");
+			for (var i = 0; i < btns.length; i++) {
+				var btn = btns[i];
+				btn.index = i;
+				btn.onclick = function(){
+					alert("第"+(this.index+1)+"个按钮");
+				}
+			} */
+			var arr = [12,34,32,67,41,34,78];
+			//给数组去重
+			for(var i=0;i<arr.length;i++){
+				for(var j = i+1;j<=arr.length;j++){
+					if(arr[i]==arr[j]){
+						arr.splice(j,1);
+					}
+				}
+			}
+			alert(arr);
+			/* arr.sort(function(a,b){
+				return a-b;
+			})
+			alert(arr); */
+		</script>
+	</body>
+</html>

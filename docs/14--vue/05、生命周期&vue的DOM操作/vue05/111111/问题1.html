@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="des">停止</button>
+        <p :style="{fontSize: x+'px'}">你好哈哈哈</p>
+        
+    </div>
+</body>
+<script>
+    /*
+    需求1：使用js，完成效果  当页面加载完成时 让p标签字体大小由10px一直增加，
+    每次加1 到50px后在减小到10px 再累加 循环往复。
+    */
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            x: 10,
+            timer:null
+        },
+        methods: {
+            des(){
+                this.$destroy()
+            }
+            //定时器重复叠加启动
+            /* change() {
+                let b = true;
+                console.log('定时器执行了');
+                setInterval(() => {
+                    if (this.x < 100 && b == true) {
+                        this.x += 1
+                    }
+                    if (this.x == 100) {
+                        b = false
+                    }
+                    if (b == false) {
+                        this.x -= 1
+                    }
+                    if (this.x == 10) {
+                        b = true
+                    }
+                }, 20)
+            } */
+        },
+        mounted() {
+            let b = true;
+            //console.log('定时器执行了');
+            this.timer = setInterval(() => {
+                if (this.x < 100 && b == true) {
+                    this.x += 1
+                }
+                if (this.x == 100) {
+                    b = false
+                }
+                if (b == false) {
+                    this.x -= 1
+                }
+                if (this.x == 10) {
+                    b = true
+                }
+                console.log('定时器执行了');
+            }, 20)
+        },
+        beforeDestroy () {
+            //关闭定时器
+            clearInterval(this.timer);
+        }
+    })
+    //方式一：通过原生js完成
+    /* let b = true;
+    setInterval(()=>{
+        if(vm.x<100 && b==true){
+            vm.x+=1
+        }
+        if(vm.x == 100){
+            b = false
+        }
+        if(b==false){
+            vm.x -= 1
+        }
+        if(vm.x==10){
+            b = true
+        }
+    },20)  */
+</script>
+
+</html>

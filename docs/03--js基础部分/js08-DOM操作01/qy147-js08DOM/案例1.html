@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button type="button" onclick="add()">点我</button>
+		<select id="sec"></select>
+		<script type="text/javascript">
+			function add(){
+				var addressArr = ['郑州','杭州','苏州','兰州','扬州','广州','福州','徐州'];
+				for (var i = 0; i < addressArr.length; i++) {
+					//创建
+					var opEle = document.createElement("option");
+					//美化
+					opEle.innerText = addressArr[i];
+					//添加
+					sec.appendChild(opEle);
+				}
+			}
+		</script>
+	</body>
+</html>

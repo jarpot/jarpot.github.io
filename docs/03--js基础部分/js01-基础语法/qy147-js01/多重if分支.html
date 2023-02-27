@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * 如果 你的java分数大于 90，输出   秀儿！ 如果在 80 -- 90之间  输出  有点秀儿，
+			如果  70--80之间  输出 一般秀儿 ， 60--70 之间  勉强秀儿   60以下   陈独秀儿。
+			 */
+			/**
+			 * 分析问题;
+			 * 		变量  java分数
+			 * 		
+			 */
+			//常规写法：
+			/* var javaScore = prompt("请输入你的java分数：");
+			if(javaScore>=90){
+				alert("秀儿！");
+			}else if(javaScore>=80 && javaScore < 90){
+				alert("有点秀儿！");
+			}else if(javaScore>=70 && javaScore < 80){
+				alert("一般秀儿！");
+			}else if(javaScore>=60 && javaScore < 70){
+				alert("勉强秀儿！");
+			}else {
+				alert("陈独秀儿");
+			} */
+			
+			//简化写法：
+			var javaScore = prompt("请输入你的java分数：");
+			if(javaScore>=90){
+				alert("秀儿！");
+			}else if(javaScore>=80){
+				alert("有点秀儿！");
+			}else if(javaScore>=70){
+				alert("一般秀儿！");
+			}else if(javaScore>=60){
+				alert("勉强秀儿！");
+			}else {
+				alert("陈独秀儿");
+			}
+			
+			//这种错误不是语法错误，浏览器不会报错，但是运行的结果是错误的，这是逻辑错误！！！
+			/* if(javaScore>=60){
+				alert("秀儿！");
+			}else if(javaScore>=70){
+				alert("有点秀儿！");
+			}else if(javaScore>=80){
+				alert("一般秀儿！");
+			}else if(javaScore>=90){
+				alert("勉强秀儿！");
+			}else {
+				alert("陈独秀儿");
+			} */
+			
+			//注意事项：
+			/* if(false){
+				
+			}else{
+				
+			} */
+			
+		</script>
+	</body>
+</html>

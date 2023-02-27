@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            name:'小明',
+            age:18,
+            address:"郑州"
+        }
+        
+
+        obj = new Proxy(obj,{
+            //获取
+            get(target,propKey){
+                //手动模拟错误
+                /*
+                    try{} catch(){}
+                        作用：就是捕获代码异常，
+                        当代码出现错误时，错误下边的代码不会再被执行，而是直接进入catch
+                    一般在定义框架时，都会把 有可能产生异常的代码块 用try catch包括
+                    优点：
+                        让代码不会因为一个小错误 而导致整个程序终止运行
+                    */
+                /* try {
+                    throw Error('报错了')
+                    let a = 1+1
+                    console.log(a)
+                    
+                } catch (error) {
+                    console.log(error)
+                } */
+
+                console.log(target,propKey)
+                return target[propKey]
+            },
+            //设置
+            set(target,propKey,value){
+                console.log(target,propKey,value)
+                target[propKey] = value
+            },
+            //删除
+            deleteProperty(target,propKey){
+                console.log('执行了删除函数')
+                let b = delete target[propKey]
+
+                return b
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//页面输出100遍  我再也不迟到了
+			/* document.write("我再也不迟到了;");
+			document.write("我再也不迟到了;"); */
+			//使用循环来解决代码多次执行的问题！
+			/**
+			 * 三种：
+			 * 		while
+			 * 		do  while
+			 * 		for
+			 * 
+			 * while循环
+			 * 	语法格式：
+			 * 		while(条件表达式){
+						循环代码块;
+					}
+					
+					标准格式：
+						初始化变量①;
+						
+						while(条件表达式②){
+							
+							循环代码块;③
+							
+							初始化变量的重新赋值;④
+						}
+			 */
+			//需要一个变量来作为条件判断用
+			/**
+			 * 循环需要条件来限制
+			 * 	让指定代码执行指定的次数，如果不限制，就是死循环。
+			 */
+			//目的：输出100次
+			/* var i = 1;
+			while(i<=100){
+				
+				document.write("第"+i+"次，我再也不迟到了;<br/>");
+				
+				//i++;
+			} */
+			
+			//输出1-100以内所有的整数
+			/* var i=1;
+			while(i<=100){
+				document.write(i+"<br/>");
+				
+				i++;
+			} */
+			
+			//输出1-100之内所有的偶数/奇数
+			/* var i=1;
+			while(i<=100){
+				if(i%2==0){
+					document.write(i+"<br/>");
+				}
+				i++;
+			} */
+			//js 代码的 调试
+			/* var i = 2;
+			while(i<=100){
+				
+				document.write(i+"<br/>");
+				
+				i+=2;
+			} */
+			
+			//计算高斯累加  1+2+3+4+。。。。+。。+100=5050;
+			/* var i=1;
+			var sum=0;
+			while(i<=100){
+				sum+=i;//===>sum=sum+i;
+				i++;
+			}
+			alert(sum); */
+			
+			//生活场景问题：
+			/**
+			 * 假如说王向博要参加AAA演出
+			 * 每天上午练唱歌，下午练跳舞，晚上练rap
+			 * 演出的组织者郭梦月，问老王，练好了吗？
+			 * 如果练好了，就参加演出，
+			 * 如果没有练好，接着练。
+			 * 
+			 * 标准格式：
+						初始化变量①;---》做条件用的
+						
+						while(条件表达式②){
+							
+							循环代码块;③
+							
+							初始化变量的重新赋值;④
+						}
+			 */
+			/* var result = prompt("老郭说：老王，练好了吗？");
+			while(result=='没有'){
+				document.write("每天上午练唱歌，下午练跳舞，晚上练rap!<br/>");
+				
+				result = prompt("老郭又说：老王，练好了吗？");
+			}
+			document.write("恭喜你老王，去演出吧！"); */
+			
+		</script>
+	</body>
+</html>

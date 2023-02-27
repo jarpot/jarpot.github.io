@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //语法：document.cookie = 'name=张三';
+        //cookie的访问  只要是在同源页面之下都可以访问同一个 cookie
+        //cookie中只能存储字符串数据
+        //= 号代表追加一个新的cookie   不是赋值
+        var date = new Date();
+        var time = date.getDate()-1;
+        date.setDate(time);
+        document.cookie = 'name=张三;expires='+date;
+        document.cookie = 'age='+18;
+        document.cookie = 'address=火星';
+    </script>
+</body>
+</html>

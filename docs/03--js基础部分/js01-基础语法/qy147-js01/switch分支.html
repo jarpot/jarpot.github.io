@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/**
+			 * 根据每天是周几使用switch语句输出不同语句
+				- 周一输出---新的一周开始了
+				- 周二到周四输出---努力工作
+				- 周五输出---明天就是周末了
+				- 周六日输出---放松的休息
+			 */
+			//prompt()输入字符串
+			//注意事项：1.case比较是全等比较  值和数据类型都比
+			//2.case的代码块后边要写 break;程序的停止就是由break控制！
+			/* var day = Number(prompt("请输入今天周几："));
+			switch(day){
+				case 1:
+					alert("新的一周开始了!");
+					break;//中断
+				case 2:
+				case 3:
+				case 4:
+					alert("努力工作!");
+					break;
+				case 5:
+					alert("明天就是周末了!");
+					break;
+				case 6:
+				case 7:
+					alert("放松的休息!");
+					break;
+				default:
+					alert("输入有误！");
+					break;
+			} */
+			
+			/**
+			 * switch和if的区别：
+			 * 		相同点：都是分支结构
+			 * 		不同点：
+			 * 			if:常用于区间比较，也可以做等值比较
+			 * 			switch:做等值比较    速度快
+			 */
+			/**
+			 * js:
+			 * 	三大组成部分：
+			 * 		1.ECMA的基本语法
+			 * 			注释，变量，数据类型，运算符，流程控制，对象
+			 * 			boolean null  number  String  undefined
+			 * 			前++
+			 * 			后++
+			 * 		2.BOM
+			 * 		3.DOM
+			 */
+			
+			/**
+			 * 假设这个月1号是星期三，提示用户输入本月的日期（即1日-31日）
+			 * ，返回用户输入的那一天是星期几
+			 * 1  8  15 星期三
+			 * 2  9  16	星期四
+			 * 3  10 17	星期五
+			 * 4  11 18	星期六
+			 * 5	星期日
+			 * 6	星期一
+			 * 7	星期二
+			 */
+			/* var day = Number(prompt("请输入今天几号："));
+			if(day%7==1){
+				alert("星期三");
+			}else if(day%7==2){
+				alert("星期四");
+			}else if(day%7==3){
+				alert("星期五");
+			}else if(day%7==4){
+				alert("星期六");
+			}else if(day%7==5){
+				alert("星期日");
+			}else if(day%7==6){
+				alert("星期一");
+			}else if(day%7==0){
+				alert("星期二");
+			} */
+			
+			/**
+			 * 输入年份  输入月份  判断该年的该月  有多少天？
+			 * 		闰年
+			 * 			2 	29
+			 * 		平年
+			 * 			2 	28
+			 * 1 3 5 7 8 10 12  31天永不差
+			 * 4 6 9 11			30天永不差
+			 * 闰年：能被4整除 and不能被100整除  或者  能被400整除
+			 */
+			var year = prompt("请输入年：");
+			var month = prompt("请输入月：");
+			switch(month){
+				case "1":
+				case "3":
+				case "5":
+				case "7":
+				case "8":
+				case "10":
+				case "12":
+					alert("有31天");
+					break;
+				case "4":
+				case "6":
+				case "9":
+				case "11":
+					alert("有30天");
+					break;
+				case "2":
+					//做是否闰年的判断 能被4整除 and不能被100整除  或者  能被400整除
+					if(year%4==0 && year%100!=0 || year%400==0){
+						alert("有29天");
+					}else{
+						alert("有28天");
+					}
+					break;
+				default:
+					alert("输入有误！");
+					break;
+			}
+		</script>
+	</body>
+</html>

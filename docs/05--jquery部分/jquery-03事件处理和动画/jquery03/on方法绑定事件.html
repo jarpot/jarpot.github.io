@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <button>点我</button>
+</body>
+<script>
+    //on方法绑定的方式一
+    //第一个参数绑定的事件类型
+    //第二个参数回调函数
+    //如果多个事件触发同一个操作  可以这样绑定 多个事件类型使用 空格 隔开
+    /* $('button').on('click mouseover',function(){
+        alert('11111');
+    }); */
+
+    //on方法绑定的方式二：
+    //同时绑定多个事件 触发不同的操作
+    $("button").on({
+        click:function(){
+            console.log(111);
+        },
+        mouseover:function(){
+            console.log(2222);
+        }
+    })
+</script>
+</html>

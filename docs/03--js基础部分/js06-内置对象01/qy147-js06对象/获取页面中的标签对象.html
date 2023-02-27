@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="aaa(this)">按钮1</button>
+		<button class="aaa">按钮2</button>
+		<button class="aaa">按钮3</button>
+		<button class="aaa">按钮4</button>
+		<div id="max">
+			你好哈哈哈哈
+			<button class="aaa">按钮5</button>
+			<button class="aaa">按钮6</button>
+		</div>
+		<script type="text/javascript">
+			function aaa(btn){
+				//此时的btn就是 传递过来的参数  this  表示当前点击的这个  标签 
+				alert(btn.innerText);
+			}
+			// this == window
+			/**
+			 *  document.getElementById("id值")//根据id获取标签对象  获取到的是1个
+				document.getElementsByClassName("类名")//根据类名获取相应的标签  多个
+				document.getElementsByName("")// 根据name属性 获取相应的标签   多个
+				Tag 标签
+				document.getElementsByTagName("")//根据标签名字 获取相应的标签  多个
+
+				query查询  
+				document.querySelector(".aaa");//根据选择器获取标签  1个
+				document.querySelectorAll(".aaa");//根据选择器获取标签 全部
+			 */
+			/**
+			 * 非表单元素使用
+			 * innerText : 取出标签中的所有文本内容
+			 * innerHTML : 取出标签中的所有内容  包含  文本和标签
+			 * outerHTML :取出标签中的所有内容  包含  文本和标签 和 标签本身
+			 * 表单元素取值用  value
+			 */
+			//此时的btnArr 用起来相当于数组  但是不是数组   伪数组
+			var btnArr = document.getElementsByClassName("aaa");
+			for(var i = 0; i < btnArr.length; i++) {
+				//alert(btnArr[i].innerText);
+				btnArr[i].onclick = function(){
+					this.style.backgroundColor = "red";
+				}
+			}
+			/* var divEle = document.getElementById("max");
+			alert(divEle.outerHTML); */
+		</script>
+	</body>
+</html>

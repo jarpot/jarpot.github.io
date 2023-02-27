@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="changName">点我改变名字</button>
+        <ul>
+            <li v-for="item in personList" :key="item.id">
+                编号:{{item.id}}==姓名:{{item.name}}==年龄:{{item.age}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    let a = undefined;
+    let vm = new Vue({
+        el: '#app',
+        data: {
+            personList: [
+                { id: 1, name: '张三', age: 18 },
+                { id: 2, name: '李四', age: 19 },
+                { id: 3, name: '王五', age: 20 }
+            ]
+        },
+        methods: {
+            changName() {
+                //此处有效
+                //this.personList[0].name = '张思四'
+
+                //创建一个新的对象把整体的张三所在的对象给替换掉
+                //this.personList[0] = { id: 1, name: '张三三', age: 40 }
+                //vue不能监测到 通过下标改变数组中的内容
+                //this.personList[3] = { id: 4, name: '张三三', age: 40 }
+
+                //有效方法
+                //Vue.set(this.personList, 0, { id: 1, name: '张三三', age: 40 })
+                //console.log(Array.prototype)
+                this.personList.push({ id: 4, name: '张三三', age: 40 })
+
+                /* filter  every  some ...
+                this.list = this.personList.filter()  */
+                //console.log(this.personList.push());
+            }
+        }
+    })
+</script>
+
+</html>

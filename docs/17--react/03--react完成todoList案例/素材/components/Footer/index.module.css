@@ -1,0 +1,12 @@
+.footer{
+    margin-top: 10px;
+}
+.footer label{
+    margin-right: 20px;
+}
+.footer label input{
+    vertical-align: middle;
+}
+.footer button{
+    float: right;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let person = {
+            name: '铁柱',
+            age: 45,
+            job: '不会写代码的铁匠不是一个合格的干饭人，请问我的工作是什么'
+        }
+        //let str = '<ul><li>我叫:' + person.name + '</li></li>我今年:' + person.age + '</li><li>我的工作：' + person.job + '</li></ul>';
+        
+
+        //es6的模板字符串  使用反引号 拼接   使用  ${变量名} 来展示 变量的值   不需要使用 '' 做拼接
+        let str = `<ul>
+                    <li>我叫:${person.name}</li>
+                    <li>我今年:${person.age}</li>
+                    <li>我的工作：${person.job}</li>
+                </ul>`;
+        
+        document.write(str);
+        let date = new Date();
+        let x = 5;
+        let y = 10;
+        document.write(`${x+y}`);
+    </script>
+</body>
+
+</html>

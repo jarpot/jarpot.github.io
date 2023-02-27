@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			document.onkeydown = function(e){
+				//e事件对象 ===  事件出发时 周围的环境信息
+				var e = window.event || e;
+				//获取按键所代表的 键码值 ===》 ascii 0-127
+				console.log(e.keyCode);
+			}
+			/* document.onkeyup = function(){
+				console.log("松开了")
+			} */
+			
+			document.onkeypress = function(){
+				console.log("按下并松开的输出");
+			}
+		</script>
+	</body>
+</html>

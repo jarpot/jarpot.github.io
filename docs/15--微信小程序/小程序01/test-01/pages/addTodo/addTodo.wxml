@@ -1,0 +1,6 @@
+<!--pages/addTodo/addTodo.wxml-->
+<view class="max">
+  <text>新增待办事项</text>
+  <input type="text" bindinput='getValue' placeholder="请求输入待办事项"/><br/>
+  <button bindtap="send">新增</button>
+</view>

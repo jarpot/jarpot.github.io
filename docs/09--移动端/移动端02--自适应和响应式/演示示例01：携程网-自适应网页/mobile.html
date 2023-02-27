@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>携程旅行网</title>
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" id="viewport" />
+    <link rel="stylesheet" type="text/css" href="style/swiper-4.1.6.min.css">
+    <link rel="stylesheet" type="text/css" href="style/mobile.css">
+</head>
+
+<body>
+    <!-- 轮播图开始 -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="images/1.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img src="images/2.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img src="images/3.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img src="images/4.jpg">
+            </div>
+            <div class="swiper-slide">
+                <img src="images/5.jpg">
+            </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <!-- 引入swiper插件库 -->
+    <script type="text/javascript" src="js/swiper-4.1.6.min.js"></script>
+    <script type="text/javascript">
+    var mySwiper = new Swiper('.swiper-container', {
+        autoplay: true, //为true启动自动切换
+        speed:500, // 切换速度，即slider自动滑动开始到结束的时间（单位ms）
+        loop: true,  //循环切换
+        effect:"flip", //可以实现3D效果的轮播
+
+        // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination',
+        }
+    })
+    </script>
+    <!-- 导航按钮部分 -->
+    <nav>
+        <ul>
+            <li>
+                <div><a href="#">酒店</a></div>
+            </li>
+            <li>
+                <div><a href="#">海外酒店</a></div>
+            </li>
+            <li>
+                <div><a href="#">团购</a></div>
+            </li>
+            <li>
+                <div><a href="#">特价酒店</a></div>
+            </li>
+            <li>
+                <div><a href="#">民宿·客栈</a></div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div><a href="#">机 票</a></div>
+            </li>
+            <li>
+                <div><a href="#">火车票·抢票</a></div>
+            </li>
+            <li>
+                <div><a href="#">特价机票</a></div>
+            </li>
+            <li>
+                <div><a href="#">汽车票·船票</a></div>
+            </li>
+            <li>
+                <div><a href="#">专车·租车</a></div>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <div><a href="#">旅 游</a></div>
+            </li>
+            <li>
+                <div><a href="#">目的地攻略</a></div>
+            </li>
+            <li>
+                <div><a href="#">周边游</a></div>
+            </li>
+            <li>
+                <div><a href="#">邮轮旅行</a></div>
+            </li>
+            <li>
+                <div><a href="#">定制旅行</a></div>
+            </li>
+        </ul>
+         <ul>
+            <li>
+                <div><a href="#">景点·玩乐</a></div>
+            </li>
+            <li>
+                <div><a href="#">礼品卡</a></div>
+            </li>
+            <li>
+                <div><a href="#">美食林</a></div>
+            </li>
+            <li>
+                <div><a href="#">WiFi·电话卡</a></div>
+            </li>
+            <li>
+                <div><a href="#">购物·信用卡</a></div>
+            </li>
+            <li>
+                <div><a href="#">保险·签证</a></div>
+            </li>
+        </ul>
+            
+        
+    </nav>
+    <!-- 腰封开始 -->
+    <div class="pic-banner">
+        <a href="#">
+            <img src="images/pic_sale.png" alt="">
+        </a>
+    </div>
+    <!-- 底部开始 -->
+    <footer class="tool-box">
+        <div class="tool-cn">
+            <a href="#" class="link-tel">电话预订</a>
+            <a href="#" class="link-down">下载客户端</a>
+            <a href="#" class="link-mc">我的携程</a>
+        </div>
+        <div class="tool-ver">
+            <a href="#" class="enlglish">ENGLISH</a>
+            <a href="#" class="computer">电脑端</a>
+            <a href="#" class="wap">意见反馈</a>
+        </div>
+        <p> © 2018携程旅行 | 沪ICP备08023580号</p>
+    </footer>
+</body>
+<script src="js/remstyle.js" type="text/javascript"></script>
+
+</html>

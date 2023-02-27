@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        for(var i=0;i<localStorage.length;i++){
+            //根据  key方法  使用下标取出所有的 key值
+            console.log(localStorage.key(i));
+            console.log(localStorage.getItem( localStorage.key(i) ));
+        }
+    </script>
+</body>
+</html>

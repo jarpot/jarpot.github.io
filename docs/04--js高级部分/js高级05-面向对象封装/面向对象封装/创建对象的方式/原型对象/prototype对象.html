@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* Array.prototype.aaa = function(){
+            console.log('aaaaa');
+        }
+
+        //创建一个数组的实例对象
+        var arr = [1,2];
+        //数组中的内置方法的调用
+        arr.push();
+        //观察发现在 这个 arr实例对象的构造函数中并没有发现 那些  内置方法(push  every  includes....)。
+        //因为 此时这些方法 是在 prototype 原型对象上存在的。
+        console.log(arr.constructor);
+        arr.aaa();
+
+        var arr2 = [];
+        arr2.aaa();
+        var arr3 = [];
+        arr3.aaa();
+        var arr4 = [];
+        arr4.aaa(); */
+
+        function Person_obj(n, a, addr) {
+            this.name = n;
+            this.age = a;
+            this.address = addr;
+        }
+        //把自我介绍这个方法绑定到构造函数的原型对象上
+        Person_obj.prototype.introduce = function(){
+            //此时这个this表示的还是  构造函数创建出来的实例对象
+            console.log(this.name+"===="+this.age);
+        }
+        Person_obj.prototype.fuse = '黄色';
+
+        var p1 = new Person_obj('张三',18,'北京');
+        p1.introduce();
+        console.log(p1.fuse);
+
+        var p2 = new Person_obj('张四',18,'南京');
+        p2.introduce();
+        console.log(p2.fuse);
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <button></button> -->
+    <script>
+        /* let arr = document.querySelectorAll('button');
+        alert(arr); */
+        //let arr = [1,2,3];
+        //把数组中的数据分别赋值给 a,b,c
+        /* let a = arr[0];
+        let b = arr[1];
+        let c = arr[2]; */
+        //解构赋值  按照下标做赋值
+        /* let [a,b,c] = [1,2,3];
+        console.log(a,b,c); */
+
+        /* let a = 10;
+        let b = 5; */
+        //把a,b交换值
+        /* let temp = a;
+        a = b;
+        b = temp; */
+
+        //解构赋值 
+        /* [a,b] = [b,a];
+        console.log(a,b); */
+
+        /* let [foo, [[bar], baz]] = [1, [[2,4], 3]];
+        console.log(foo,bar,baz,aaa); */
+
+        /* let [foo] = "1";
+        console.log(foo); */
+        /* let [foo] = false;
+        let [foo] = NaN;
+        let [foo] = undefined;
+        let [foo] = null;
+        let [foo] = {}; */
+
+        /* let [a=1,b=2] = [5,undefined];
+        console.log(a,b); */
+
+        /* function aaa(){
+            console.log(111);
+            return 222;
+        }
+        //let a = aaa();
+        let[a=aaa()] = [1];
+        console.log(a); */
+
+
+        //三点运算符
+        let arr1 = [3,4,5];
+        let arr2 = [1,2, ...arr1 ,6,7,8];
+        console.log(arr2);
+
+        let [a,b,c,...d] = [1,2,3,4,5,6,7,8,9,10];
+        console.log(a,b,c,d);
+    </script>
+</body>
+
+</html>

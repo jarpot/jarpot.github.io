@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="getCode(this)">获取验证码</button>
+		<script type="text/javascript">
+			function getCode(btn){
+				/**
+				 * 分析
+				 * 		根据需求：就是我们需要的效果
+				 * 1.本来是一个正常按钮，点击后  按钮中的字变成 "倒计时"+i+"秒"
+				 * 2.因为定时器具有叠加效果，所以为了防止客户误触  我们需要把按钮失效(倒计时期间)
+				 * 3.当倒计时结束后  把按钮恢复正常状态。然后把按钮中的字体  改为 "再次获取验证码"
+				 */
+				var i=60;
+				var timer = setInterval(function(){
+					i--;
+					if(i>9){
+						btn.innerText = "倒计时"+i+"秒";
+					}else{
+						btn.innerText = "倒计时"+"0"+i+"秒";
+					}
+					btn.disabled = true;
+					
+					//停止倒计时
+					if(i==-1){
+						btn.innerText = "再次获取验证码";
+						btn.disabled = false;
+						clearInterval(timer);
+					}
+				},1000)
+			}
+		</script>
+	</body>
+</html>

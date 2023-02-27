@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [2,1,4,3,5,3];
+			//常规排序 默认升序   按照unicode码表
+			//arr.sort();
+			//alert(arr);
+			//比较数字数组  可以自定义排序规则
+			arr.sort(function(a,b){
+				return b-a;
+			})
+			alert(arr);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //构造函数：功能：构建创造  用来创建对象用的。
+        /*
+        平常我们使用的能够 通过new关键字创建出的对象证明在底层 有一个关于该对象的构造函数
+        Array()  function Array(){}
+        Date()   function Date(){}
+        String() function String(){}
+        通过构造函数创建的对象 可以使用instanceof关键字  去检测  该对象与该构造函数是否有关系。
+        */
+        //var arr = [1,2];
+        //console.log(arr instanceof Array);
+
+        /*
+            自定义构造函数生成相应的对象
+            name  age address  introduce
+            约定写法：构造函数的名字 首字母要大写
+            构造函数跟普通函数在语法上没有区别：主要看函数存在的意义。
+        */
+        function Person_obj(n, a, addr) {
+            this.name = n;
+            this.age = a;
+            this.address = addr;
+            this.introduce = function(){
+                console.log("我叫"+this.name+"年龄"+this.age);
+            }
+        }
+        //new  关键字就是用来创建对象用的。
+        //当函数跟 new 关键字连用时， this就不是window 是当前创建的这个对象。
+        var p1 =  new Person_obj('张三',18,'苏州');
+        p1.introduce();
+        //此时输出的结果为 true  证明  p1对象是由 Person_obj这个构造函数生成的，构造函数Person_obj就是 p1的爹。
+        console.log(p1 instanceof Person_obj);
+
+        console.log(Person_obj);
+    </script>
+</body>
+
+</html>

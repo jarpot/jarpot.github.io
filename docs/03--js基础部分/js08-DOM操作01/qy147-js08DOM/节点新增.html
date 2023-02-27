@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<button onclick="c()">点我</button>
+		<div id="max">
+			<a id="aaa" href="#">你好哈哈哈哈</a>
+		</div>
+		<script type="text/javascript">
+			function c(){
+				//cloneNode(); 复制节点
+				/**
+				 * 浅拷贝：括号中不写参数
+				 * 深拷贝：括号中写 true
+				 */
+				var div1 = max.cloneNode(true);
+				alert(div1.outerHTML);
+			}
+			function insertNode(){
+				// id的值 只要不是关键字 就可以直接使用  id的值 来代替 标签对象。
+				//父.insertBefore(新标签，旧标签); 
+				var pEle = document.createElement("p");
+				pEle.innerText = "你好嘿嘿嘿";
+				document.getElementById("max").insertBefore(pEle,aaa);
+			}
+			function addNode2(){
+				document.getElementById("max").innerHTML += "<p style='background-color: red;'>你好哈哈哈</p>";
+			}
+			function addNode1(){
+				/**
+				 * 节点的添加：三步：
+				 * 		1.创建 : 创建标签
+				 * 		2.美化 : 美化的是创建好的标签
+				 * 		3.添加 : 父.appendChild(子)
+				 */
+				//document.createElement();
+				var pEle = document.createElement("p");
+				
+				//2.美化  p标签背景颜色为红色
+				pEle.style.backgroundColor = "red";
+				/* pEle.innerText = "你好哈哈哈"; */
+				
+				//创建文本节点
+				var text_ = document.createTextNode("你好哈哈哈");
+				//把创建好的文本节点 添加到 p标签中
+				pEle.appendChild(text_);
+				
+				
+				//将造好的标签添加到指定的标签中去
+				document.getElementById("max").appendChild(pEle);
+			}
+		</script>
+	</body>
+</html>

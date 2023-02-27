@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+
+<body>
+    <!-- ul>li*3>ul>li*2 -->
+    <ul id="max">
+        <li>人事管理
+            <ul>
+                <li class="aaa">添加人事档案</li>
+                <li>查询人事信息</li>
+            </ul>
+        </li>
+        <li>财务管理
+            <ul>
+                <li>添加财务档案</li>
+                <li>查询财务信息</li>
+            </ul>
+        </li>
+        <li>销售管理
+            <ul>
+                <li>添加销售档案</li>
+                <li>查询销售信息</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        $("li").addClass('bbb');
+        //标签选择器 给所有的ul设置样式
+        $("ul").css({
+            'width': '150px',
+            'border': '1px solid red',
+            'margin': '0px',
+            'padding': '0px',
+            'list-style': 'none',
+            'text-align': 'center',
+            'background': '#CC99CC'
+        })
+        //给子级菜单设置
+        $("#max ul").css({
+            'background': '#6E6568',
+            'color': 'white'
+            //'display':'none'
+        }).hide()
+
+        //悬浮效果
+        $("#max > li").mouseover(function () {
+            /*
+                此处直接使用this 表示的是 当前悬浮的li元素 得到的是一个js对象
+                此时使用$(this)  表示的是 当前悬浮的li元素 得到的是一个jq对象
+            */
+            //jquery形式
+            //$($(this).children()[0]).show()
+            //js形式
+            this.children[0].style.display = "block";
+        })
+
+        $("#max > li").mouseout(function () {
+            /* $("#max > li > ul:eq(0)").css({
+                'display':'block'
+            }); */
+            //alert( $(this).html() )
+            $($(this).children()[0]).hide()
+        })
+    </script>
+</body>
+
+</html>

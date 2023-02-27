@@ -1,0 +1,23 @@
+.list{
+    border: 1px solid #E0E0E0;
+    padding: 5px;
+}
+.list input {
+    margin-right: 10px;
+}
+.list button{
+    font-size: 12px;
+    float: right;
+    width: 45px;
+    /* display: none; */
+}
+.list:hover{
+    background-color: #E5E5E5;
+}
+.list:hover button{
+    display: inline;
+}
+.active{
+    text-decoration: line-through;
+    color: gray;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<script type="text/javascript">
+			/**
+			 * 目的：鼠标点击div，点击之后移动鼠标  完成拖拽效果
+			 * 		需要两个事件：
+			 * 			点击鼠标   onmousedown
+			 * 			移动鼠标   onmousemove
+			 * 		抛出问题：移动鼠标要干什么？
+			 * 			鼠标移动的位置  就是  div框最终的位置 让div跟着 鼠标移动
+			 * 			让div的位置  跟随鼠标的位置
+			 * 		问题：如何让div跟随鼠标的位置？
+			 * 			要获取鼠标移动后的位置(坐标)，把这个坐标变成 div框的坐标
+			 * 		问题：如何获取鼠标的位置信息呢？
+			 * 			screenY/X 表示的是鼠标点击的位置距离屏幕的距离
+			 * 			clientY/X 表示的是鼠标点击的位置距离浏览器窗口可视区域的距离
+			 * 			根据事件对象能够取出鼠标的位置信息
+			 * 		两个问题：
+			 * 			1.鼠标只要挪动  鼠标的位置 会到 div框的左上角，不能保留挪动时的位置
+			 * 				发现每一次div框多挪了一部分位置：offsetX offsetY
+			 * 				鼠标按下时 就应该取出  最初的 offsetX和offsetY 
+			 * 			2.松开鼠标  div框也跟着 鼠标动
+			 */
+			//首先拿到这个div
+			var divEle = document.getElementsByTagName("div")[0];
+			divEle.onmousedown = function(e){
+				//取到事件对象
+				e = e || window.event;
+				//最开始鼠标按下时，鼠标点击的位置距离元素边界距离
+				var y = e.offsetY;
+				var x = e.offsetX;
+				document.onmousemove = function(e){
+					//取到事件对象
+					e = e || window.event;
+					//把鼠标的位置信息赋值给 div框的定位的 top和left直
+					//console.log(e.clientX)
+					//此处的距离才是div框应该移动的距离
+					var topY = e.clientY-y;
+					var topX = e.clientX-x;
+					//当向上移动的距离<0时 就等于0
+					if(topY<0){
+						topY = 0;
+					}
+					//当向左移动的距离<0时 就等于0
+					if(topX<0){
+						topX = 0;
+					}
+					
+					//向右移动的最大距离
+					//console.log(document.defaultView.getComputedStyle(divEle,null).width);
+					var maxW = window.innerWidth - divEle.offsetWidth;
+					if(topX>maxW){
+						topX = maxW;
+					}
+					//向下挪的最大距离
+					var maxH = window.innerHeight - divEle.offsetHeight;
+					if(topY>maxH){
+						topY = maxH;
+					}
+					
+					//把最终要移动的距离赋值给 top 和  left属性
+					divEle.style.top = topY +"px";
+					divEle.style.left = topX + "px";
+				}
+				
+			}
+			//当鼠标送开时  对  onmousemove事件进行取消
+			divEle.onmouseup = function(){
+				//console.log("111");
+				//事件解绑
+				document.onmousemove = null;
+			}
+		</script>
+	</body>
+</html>

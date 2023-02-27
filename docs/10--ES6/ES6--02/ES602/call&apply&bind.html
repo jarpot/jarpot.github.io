@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            call & apply方法主要目的是改变函数的this指向。并且可以向 函数中传递参数
+                call(obj,参数列表) obj就是this  
+                apply(obj,参数数组)obj就是this
+            并且 如果调用了  call和apply方法  会自动的调用一次函数。
+
+            bind():同样是改变this的指向
+                但是 自己不会执行，必须重新调用。
+                aaa.bind(obj) bind方法执行后 会返回一个新的函数出来。
+                必须执行这个新的函数才可以改变this 指向。
+        */
+        function aaa(a,b){
+            console.log(this,a,b);//此时this指向window
+        }
+
+        //aaa();
+        let obj = {
+            name:'张三',
+            age:18
+        }
+        //aaa.call(obj,1,2);//改变 aaa函数中this的指向到  obj
+        //aaa.apply(obj,[1,2]);//改变 aaa函数中this的指向到  obj
+        let fn = aaa.bind(obj);//本身不会执行，但是会返回一个新的函数
+        fn();//执行返回的新的函数。
+    </script>
+</body>
+
+</html>

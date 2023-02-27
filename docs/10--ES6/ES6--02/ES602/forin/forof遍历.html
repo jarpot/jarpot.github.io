@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /* let arr = [1, 2, 3];
+        arr.name = '数组';
+        arr.aaa = function () { }; */
+        //for in遍历的是对象 中所有的属性和方法.
+        /* for(let i in arr){
+            //此时i是下标  
+            console.log(i,arr[i]);
+        } */
+
+        /* for (let v of arr) {
+            console.log(v);
+        }
+
+
+        let obj = {
+            name: '张三',
+            age: 18,
+            address: '郑州'
+        } */
+
+        //for in可以遍历对象  推荐使用forin遍历对象
+        /* for(let k in obj){
+            console.log(k,obj[k]);
+        } */
+
+        //使用for of遍历对象  直接报错  因为对象不存在 迭代器 iterator
+        /* for(let k of obj){
+            console.log(k);
+        } */
+
+        //取出obj对象中所有的key值  是一个数组  通过for of遍历数组  间接遍历对象
+        /* let keys = Object.keys(obj);
+        for (let k of keys) {
+            console.log(k,obj[k]);
+        } */
+
+
+
+        //遍历map对象时适合用解构
+        /* let arr = [["name",'张三'], ["age", 18], ["address", '武汉']];
+        let map = new Map(arr);
+        console.log(map);
+        for (var [key, value] of map) {
+            console.log(key + "====" + value);
+        }
+
+        let a = [...map];
+        console.log(a); */
+        /* [key,value] = ["name",'张三']
+        [key,value] = ["age", 18]
+        [key,value] = ["address", '武汉'] */
+
+
+        //map转对象
+        /* function strMapToObj(strMap) {
+            let obj = Object.create(null);
+            //对map做遍历
+            for (let [k, v] of strMap) {
+                obj[k] = v;
+            }
+            return obj;
+        }
+
+        let myMap = new Map()
+            .set('yes', true)
+            .set('no', false);
+        strMapToObj(myMap) */
+        // { yes: true, no: false }
+
+
+        //对象转map
+        let obj = { "a": 1, "b": 2 };
+        //将对象中的key和value以 条目的形式的取出 (同时 包含 key value)
+        let entrys = Object.entries(obj);
+        console.log(entrys);// [[a,1],[b,2]]
+        let map = new Map(entrys);  
+        console.log(map);
+    </script>
+</body>
+
+</html>

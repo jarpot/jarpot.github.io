@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<p id='p1'>你好哈哈哈</p>
+	</body>
+	<script type="text/javascript">
+		//定义发布者
+		class Dep{
+			constructor(data) {
+			    this.data = data
+				//定义数组用来存储订阅者
+				this.subList = []
+			}
+			
+			//添加订阅者
+			addWatcher(watcher){
+				//把订阅者添加到数组中
+				this.subList.push(watcher)
+			}
+			//通知订阅者
+			send(){
+				//通知所有订阅者 并调用对应的操作
+				this.subList.forEach(w=>{
+					w.callBack(this.data)
+				})
+			}
+			//监听data中数据的改变
+			listenData(){
+				//console.log(this)
+				let that = this;
+				//取出要监听的数据中所有的key值
+				let keys = Object.keys(this.data)
+				keys.forEach(key=>{
+					let value = this.data[key]
+					Object.defineProperty(this.data,key,{
+						configurable:true,
+						enumerable:true,
+						//当外界获取元素时执行
+						get(){
+							console.log(`读取了${key}的值`)
+							return value
+						},
+						//当外界设置，或修改元素时执行 val就是修改时 传入的值
+						set(val){
+							console.log(`${key}的值发生了改变`)
+							value = val
+							//调用通知方法
+							that.send()
+						}
+					})
+				})
+			}
+		}
+		
+		//定义订阅者
+		class Watcher{
+			constructor(fn) {
+			    this.fn = fn
+			}
+			callBack(data){
+				this.fn(data)
+			}
+		}
+		//定义订阅者收到消息后的操作
+		function fn(data){
+			console.log('监听到数据发生改变，需要调用渲染dom的方法')
+			//console.log(data)
+			//更新DOM结构的数据
+			document.getElementById('p1').innerText = data.name
+		}
+		
+		//创建订阅者对象
+		let w1 = new Watcher(fn)
+		
+		//定义vue对象的构造函数
+		class my_vue{
+			constructor(options) {
+				this.$data = options.data
+				this.$el = options.el
+				//创建发布者
+				let dep = new Dep(options.data)
+				//调用添加订阅者方法
+				dep.addWatcher(w1)
+				//调用监听数据的改变的方法
+				dep.listenData()
+				//通知订阅者
+				dep.send()
+			}
+		}
+		
+        //定义被代理的数据
+        let obj = {
+				name:'张三',
+				age:18
+			}
+        
+		//创建vue实例对象
+		let vm = new my_vue({
+			el:'#app',
+			data:obj
+		})
+		
+	</script>
+</html>

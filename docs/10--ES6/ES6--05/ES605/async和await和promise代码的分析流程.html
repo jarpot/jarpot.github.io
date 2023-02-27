@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+        只要遇到await 就会阻塞 await之后代码的执行！！！
+        1.如果它等到的不是一个 Promise 对象，
+            那 await 表达式的运算结果就是它等到的东西。
+        2.如果它等到的是一个 Promise 对象，
+            await 就忙起来了，它会阻塞后面的代码，
+            先执行async外面的同步代码，
+            等着 Promise 对象 resolve状态--》fulfilled，
+            然后得到 resolve 的值，作为 await 表达式的运算结果。 */
+        //示例一、
+        /* async function f3() {
+            let res = await 123;
+            console.log(res);//3
+            return res;
+        }
+        f3();
+        console.log(111);//1
+        console.log(f3());//2 */
+        // 111  Promise()  123
+
+        //示例二、
+        /* async function f2() {
+            //Promise对象中的代码 是立即会被执行的 所以先输出 111  然后才执行 res输出
+            let res = await new Promise((resolve, reject) => {
+                if (true) {
+                    console.log('1111')
+                    resolve({ msg: '嘿嘿嘿' });
+                } else {
+                    reject({ msg: 'error~' });
+                }
+            });
+            console.log(res);
+        }
+        f2();// 111  嘿嘿嘿 */
+
+        //案例三
+        /* async function f4() {
+            console.log(111111);
+            let r = await 22222;
+            console.log(r);
+            console.log(33333);
+        }
+        f4();
+        console.log(444444); */
+        // 1 4 2 3
+
+        //示例四：
+        /*  async function fn() {
+             console.log(111);
+             let res = await new Promise((resolve, reject) => {
+                 console.log(22222);
+                 setTimeout(() => {
+                     if (true) {
+                         console.log('aaaaa')
+                         resolve('成功');
+                     } else {
+                         reject('失败');
+                     }
+                 }, 1000);
+                 console.log(3333)
+             });
+             //console.log(a,res);
+             console.log(66666);
+             console.log(res);
+         }
+         console.log(44444);
+         fn();
+         console.log(55555);
+         // 4 1 2 3 5 a 6 成功 */
+
+        //今日头条：面试题
+        async function async1() {
+            console.log('async1 start');
+            await async2();
+            console.log('async1 end');
+        }
+
+        async function async2() {
+            console.log('async2');
+        }
+
+        console.log('script start');
+        setTimeout(function () {
+            console.log('setTimeout');
+        }, 2000)
+        
+        setTimeout(function () {
+            console.log('setTimeout1');
+        }, 1000)
+
+        async1();
+
+        new Promise(function (resolve) {
+            console.log('promise1');
+            resolve();
+        }).then(function () {
+            console.log('promise2');
+        });
+
+        console.log('script end');
+        //scriptstart async1start  async2  promise1  scriptend  promise2  settimeout async1end
+        //scriptstart async1start  async2  promise1  scriptend  async1end promise2  settimeout
+    </script>
+</body>
+
+</html>

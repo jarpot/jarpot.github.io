@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.创建 Promise对象
+        //Promise构造函数中要传递的参数 是一个函数对象。
+        //function中要传递两个参数 resolve,reject 这两个参数是内部封装好的我们直接用就可以
+        //resolve成功和reject失败都是函数。
+
+        //现在只考虑  js中 同步和异步操作
+        let p = new Promise(function(resolve,reject){
+            let a = 10;
+
+            if(a > 8){//把次吃当成请求成功的状态
+                resolve('请求成功了'); //只要执行这个代码 状态就变成了  fulfilled 成功
+            }else{//请求失败的状态
+                reject('请求失败了'); //只要执行这个代码 状态就变成了  rejected 失败
+            }
+
+            console.log(11111);
+        });
+
+        //then 然后  当 promise执行完毕后 会自动的执行then中的内容
+        //then(fn1,fn2)  fn1就是请求成功的回调  fn2就是 请求失败的回调
+        p.then(function(success){
+            console.log(success);
+            console.log(2222222222);
+        },function(error){
+            console.log(error);
+        })
+        
+
+        console.log('333333333333');
+    </script>
+</body>
+</html>

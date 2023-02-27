@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button >按钮1</button>
+		<button >按钮2</button>
+		<button >按钮3</button>
+		<script type="text/javascript">
+			/*页面上创建三个button按钮，
+			封装一个函数，点击按钮，弹出相对应的提示"您点的是第1个按钮，第2个按钮，第3个按钮"。*/
+			var btnArr = document.getElementsByTagName("button");
+			for (var i = 0; i < btnArr.length;i++){
+				var btn = btnArr[i];
+				//把每一轮的i+1 作为一个属性 赋给该轮的btn按钮对象  自定义index属性并赋值
+				btn.index = i+1;
+				btn.onclick = function(){
+					alert("第"+this.index+"个按钮");
+				}
+			}
+		</script>
+	</body>
+</html>

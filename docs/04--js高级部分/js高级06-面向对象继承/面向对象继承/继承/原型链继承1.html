@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //父级构造函数
+        function Person(){
+            this.class_ = 'qy147';
+        }
+        //构造函数的所有的实例对象都会具有class_属性
+        console.log(new Person().class_);
+       
+        //子级构造函数
+        function Student(n,a){
+            this.name = n;
+            this.age = a;
+        }
+        //让子级构造函数的原型对象指向父级构造函数的实例对象 
+        Student.prototype = new Person();
+        
+        var stu = new Student('张三',18);
+        console.log(stu.class_);
+
+        //constuctor 实例对象的这个属性会指向该对象的构造函数
+        //就是一个指针 
+        //此时存在问题：原型链紊乱。
+        //解决：问题 强行改变一波
+        //任何对象都有constructor属性 
+        Student.prototype.constructor = Student;
+        console.log(stu.constructor);
+
+    </script>
+</body>
+</html>

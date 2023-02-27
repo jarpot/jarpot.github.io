@@ -1,0 +1,50 @@
+//这是一个单行注释 ：不会被编译css文件中
+/*这是一个多行注释 ：会被编译到css文件中*/
+
+/*
+    Less中的变量定义：
+        @+变量名 
+        1.作为属性值来使用
+        2.作为属性名使用 @{b}
+        3.作为选择器来使用  @{name}
+        4.作为URL：@{url}
+        5.变量的延迟加载
+*/
+@w:300px;
+@color:green;
+@b:border;
+@name:.box;
+
+@url:'../images/';
+
+@{name}{
+    width: @w;
+    height: 300px;
+    @{b}: 1px solid red;
+    background-color: @color;
+    text-align: center;
+    background-image: url('@{url}4.gif');
+}
+.son{
+    width: @w;
+    @{b}:5px;
+    background-image: url('@{url}5.gif');
+}
+.son1{
+    @{b}:5px;
+    background-image: url('@{url}5.jpg');
+}
+.son2{
+    @{b}:5px;
+    background-image: url('@{url}4.jpg');
+}
+
+//直接使用@arguments 代表传递来的所有参数
+.border(@w,@s,@co){
+    border:@arguments;
+}
+
+.box{
+    .border(5px,dashed,blue );
+}
+

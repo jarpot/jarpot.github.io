@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+    <style>
+        #app{
+            width: 500px;
+            height: 500px;
+            border: 2px solid red;
+        }
+
+        #son{
+            width: 300px;
+            height: 300px;
+            border: 2px solid green;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>这是父组件接收子组件的数据{{fname}},它的儿子是:{{sname}}</h1>
+        <!-- 在父组件中调用子组件的位置 绑定一个自定义事件 aaa 
+             该事件再触发一个函数 此时 函数的参数就是 子传递来的数据-->
+        <son @aaa="fatherEvent"></son>
+    </div>
+    <template id="tem">
+        <div id="son">
+            <!-- 子向父传递是逆向传递 不能主动触发 -->
+            <h1>这是子组件展示数据:{{sname}}</h1>
+            <button @click="sonEvent">点我向父组件传递数据</button>
+        </div>
+    </template>
+</body>
+<script>
+    let vm =  new Vue({
+        //el:'#app',
+        //el:document.getElementById("app"),
+        data:{
+            fname:'父亲',
+            age:"50",
+            sname:''
+        },
+        methods:{
+            //此时这个函数中的参数 就是 从子传递来的数据
+            fatherEvent(val){
+                this.sname = val
+            }
+        },
+        components: {
+            son:{
+                template:"#tem",
+                data(){
+                    return {
+                       sname:'小三'
+                    }
+                },
+                methods: {
+                    sonEvent(){
+                        //this.$emit('自定义事件名', 要传递到父组件的参数)
+                        this.$emit('aaa',this.sname )
+                    }
+                }
+            },
+            
+        }
+    })
+
+    vm.$mount("#app");
+</script>
+</html>

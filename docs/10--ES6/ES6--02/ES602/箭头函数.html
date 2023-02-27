@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* function aaa(){console.log('你好，我是普通函数');}
+        aaa(); */
+        //箭头函数一般用来使用  匿名函数  使用。
+        /*
+            => 用来连接 参数括号  和  函数体
+        */
+        let aaa = () => console.log('你好我是箭头函数');
+        //aaa();
+        /*
+            封装公共函数的三要素：
+                函数名
+                参数列表
+                返回值
+
+            箭头函数要考虑的三部分：   
+                参数列表
+                代码块
+                返回值
+
+            1.参数方面：
+                ① 没有参数时
+                    let fn = ()=>{代码块;}
+                ② 只有一个参数时 参数括号可以省略
+                    let fn = (a)=>{代码块;}
+                ③ 形参多个(2个或者2个以上) 括号不能省略
+                    let fn = (a,b,c) => {代码块;}
+            2.函数体方面
+                ① 函数体只有一条语句 或者表达式的时候 {}可以省略
+                    let fn = ()=>cnosole.log('qqq');
+                ② 当函数体只有一条语句 并且是返回值的时候  {} 可以省略  return 也可以省略
+                    let fn = (a,b)=>a+b;
+                ③ 当函数体是多条语句时 {}不能省略
+                    let fn = () =>{
+                        代码块;
+                        return 数据/表达式;
+                    }
+        */
+        //没有参数时
+        //let fn = () => {console.log(111)};
+        //一个参数  时 参数括号可以省略
+        //let fn = a => {console.log(a)};
+        //多个参数时
+        //let fn = (a,b,c) => console.log(a,b,c);
+
+        //只有一条语句  并且是返回值时  不需要写 大括号和 return 直接写返回值的表达式就可以。
+        /* let fn = (a,b,c) => ({top:a,left:b})
+        
+        console.log( fn(1,2) ); */
+
+
+        /* let fn = () => {
+            console.log(this);
+        }
+        fn(); */
+    </script>
+</body>
+
+</html>

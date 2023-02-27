@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //json: javaScript object  notation   js对象表示法
+        //var obj = new Object();
+        //普通的js对象中可以存储任意的数据类型  键值对 key  value
+        /*
+            变量：是程序运行的最小的存储单元  只能存储一个数据
+            数组：数组用于存储多个数据，数据之间可以不关联
+            对象: 用于存储一系列有关联的数据。
+            json的作用：
+                1.用于前后端的数据交互
+                2.json的语法跟 js对象的语法类似
+                3.json独立于语言和平台。
+                4.json主要用于存储数据（文本信息）。
+                5.json中的key值必须是字符串。
+        */
+        var str = {"name":"张三","age":18,"address":"火星"};
+        console.log(str);
+        //JSON.stringify()  把 正二八经的json对象转换成 具有json格式的字符串
+        console.log(JSON.stringify(str));
+        //for in 既可以遍历数组   又可以遍历对象中的属性
+        //json对象的遍历
+        //通过JSON.parse(str)  把 具有json格式的字符串转换成  正儿八经的json对象 
+        /* var jsonObj =  JSON.parse(str);
+        for (var key in jsonObj) {
+            console.log(key+"=="+jsonObj[key]);
+        } */
+        //json中数据的取值 跟 js对象一致   对象名.属性名/对象名[属性名]
+        //console.log(jsonObj["address"]);
+
+        /*
+        在做前后端的数据传输时，
+            如果是前---》后   要使用JSON.Stringify把json对象先转换成  json字符串 才可以在网络中传输。
+            如果是接收从后台到前台的数据，要先把接收到的数据(json字符串) 通过  JSON.parse()方法转成json对象才可以使用。 
+        */
+    </script>
+</body>
+</html>

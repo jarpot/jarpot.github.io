@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			p{
+				background-color: red;
+				height: 250px;
+				float: left;
+			}
+			/* p::after{
+				content: "你好嘿嘿";
+			} */
+		</style>
+	</head>
+	<body>
+		<p style="width: 200px;">你好哈哈哈</p>
+		<script type="text/javascript">
+			//document.getElementsByTagName("p")[0].style.backgroundColor = "red";
+			//如果背景颜色为红色  变成  蓝色。
+			var pEle = document.getElementsByTagName("p")[0];
+			console.log(pEle.style.backgroundColor);
+			console.log(pEle.style.width);
+			/* console.log(document.defaultView.getComputedStyle(pEle,null).backgroundColor);
+			console.log(window.getComputedStyle(pEle,null).height); */
+			//IE8不能使用document.defaultView.getComputedStyle(pEle,null)这个方法
+			//但是可以使用  element.currentStyle
+			//console.log(pEle.currentStyle.height);
+			
+			//兼容性写法 
+			if(pEle.currentStyle){
+				console.log(pEle.currentStyle.height+"IE8");
+				console.log(pEle.currentStyle.styleFloat+"IE8");
+			}else{
+				console.log(document.defaultView.getComputedStyle(pEle,null).height+"普通");
+				console.log(document.defaultView.getComputedStyle(pEle,null).cssFloat+"普通");
+			}
+		</script>
+	</body>
+</html>

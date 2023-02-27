@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        //异步加载图片  当图片加载完成时 把图片放入 div中
+        function loadImg(url){
+            return new Promise((resolve,reject)=>{
+                //1.先创建 图片对象
+                let img = new Image();//===>等同于图像标签
+
+                //图片加载完成时 标识 成功状态
+                img.src = url;
+
+                //2.给img对象绑定事件  加载事件 当图片加载完成时 触发
+                img.onload = ()=>{
+                    resolve(img);
+                }
+
+                //3.当图片加载失败
+                img.onerror = ()=>{
+                    reject('图片加载失败');
+                }
+            })
+        }
+
+
+        let url = 'http//img.alicdn.com/imgextra/i3/3801041660/O1CN01MZfttd1O8K3oqODys_!!3801041660-0-daren.jpg_360x360xzq90.jpg_.webp';
+
+        loadImg(url).then((success)=>{
+            console.log(1111);
+            //如果成功 把图片 添加到 div中
+            box.appendChild(success);
+        }).catch((error)=>{
+            console.log(error);
+        })
+    </script>
+</body>
+</html>

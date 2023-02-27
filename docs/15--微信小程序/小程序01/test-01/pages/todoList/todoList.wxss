@@ -1,0 +1,17 @@
+/* pages/todoList/todoList.wxss */
+.top{
+  border: 4rpx dashed gray;
+  text-align: center;
+  padding: 30rpx;
+  margin: 0 40rpx;
+}
+.content{
+  display: flex;
+  margin: 0 40rpx;
+  padding: 30rpx 0;
+  border-bottom: 2rpx solid gray;
+}
+.active{
+  text-decoration: line-through;
+  color: gray;
+}

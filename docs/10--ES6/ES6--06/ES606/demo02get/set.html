@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Student{
+            //age;
+            set age(v){
+                console.log('设置',v);
+                //this.age = v;
+            }
+
+            get age(){
+                console.log('获取年龄');
+                //return age;
+            }
+        }
+
+        let s1 = new Student();
+        //相当于调用了 set age(){}方法。
+        s1.age = 19;
+        //s1.age 相当于调用了 get age(){}方法
+        console.log(s1.age);
+
+        //以上 两个方法没有任何意义，非常鸡肋，了解一下！！！
+    </script>
+</body>
+</html>

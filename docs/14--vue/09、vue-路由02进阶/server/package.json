@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "connect-history-api-fallback": "^1.6.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "jquery": "^3.6.0"
+  }
+}

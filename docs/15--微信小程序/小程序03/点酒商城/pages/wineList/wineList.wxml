@@ -1,0 +1,19 @@
+<!--pages/wineList/wineList.wxml-->
+<!-- 定义导入搜索框组件 -->
+<search  bind:sendValues='getValue'></search>
+<!-- 商品列表渲染 -->
+<view>
+  <view class="wine_list_detail" wx:for="{{wineData}}" wx:key="commodity_name">
+    <view><image src="{{baseImgUrl}}{{item.picture_url}}"></image></view>
+    <view class="wine_detail">
+      <view>{{item.commodity_name}}</view>
+      <view class="price">
+        <text>{{item.commodity_price}}￥</text>
+        <text>销量{{item.commodity_sales}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{isShow}}" class="weui-loading"></view>
+  <view wx:else>已经到底了呦</view>
+</view>

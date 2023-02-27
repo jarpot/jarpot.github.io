@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Document</title>
+	<style>
+		*{ padding: 0; margin: 0}
+		.mark{
+			width: 100%;
+			height: 3128px;
+			background: #000;
+			position: absolute;
+			left: 0;
+			top: 0;
+			opacity: 0.3;
+		}
+		.pic{
+			position: fixed;
+			left: 50%;
+			top: 50%;
+			margin-left: -230px;
+			margin-top: -215px;
+		}
+	</style>
+</head>
+<body>
+	<!-- 用一张图片当作正浏览的网页 -->
+	<img src="images/bj.png" alt="">
+</body>
+</html>
+<script>
+//setTimeout方法
+	//1、做一个定时器
+	auto=setTimeout(function(){
+		//2、3秒后要干的事情
+		var body=document.getElementsByTagName('body');
+		//创建一个灰色的蒙层
+		var newDiv=document.createElement("div"); //<div></div>
+		newDiv.className="mark"//div的class名称为mark  <div class="mark"></div>
+		//将创建好的蒙层追加至body
+		body[0].appendChild(newDiv);  
+
+		//创建img元素
+		var newImg=document.createElement('img');//<img>
+		newImg.src='images/pic.png';//<img src="images/pic.png">
+		newImg.className='pic';
+		body[0].appendChild(newImg);
+
+		//点击图片上的"x"时，关闭黑色蒙层和图片
+		newImg.onclick=function()
+		{
+			body[0].removeChild(newDiv);
+			body[0].removeChild(newImg);
+		}
+	},3000)
+</script>

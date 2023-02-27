@@ -1,0 +1,25 @@
+#header{
+    width: 400px;
+    margin-bottom: 10px;
+}
+#header input{
+    width: 350px;
+    height: 25px;
+    outline: none;
+    border: 1px solid #6E6E6E;
+    border-radius: 3px 0 0 3px;
+    border-right: 0;
+    padding-left: 10px;
+    box-sizing: border-box;
+    line-height: 25px;
+}
+#header button{
+    height: 25px;
+    width: 45px;
+    vertical-align: bottom;
+    border: 1px solid gray;
+    
+}
+#header > h3{
+    margin: 10px;
+}

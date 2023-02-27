@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum=1.0,minimum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <script src=""></script>
+    <style>
+        .box{
+            width: 450px;
+            height: 450px; 
+            border: 1px solid red;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-evenly; 
+            /*
+                定义多跟轴线时 项目在 交叉轴的排列方式
+            */
+            align-content: stretch;
+        }
+
+        .son{
+            width: 100px;
+            /* height: 100px; */
+            background-color: pink;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="son">1</div>
+        <div class="son">2</div>
+        <div class="son">3</div>
+        <div class="son">4</div>
+        <div class="son">5</div>
+        <div class="son">6</div>
+        <div class="son">7</div>
+        <div class="son">8</div>
+    </div>
+</body>
+</html> 

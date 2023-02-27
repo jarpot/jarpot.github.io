@@ -1,0 +1,9 @@
+/* pages/addTodo/addTodo.wxss */
+.max{
+  text-align: center;
+  font-size: 40rpx;
+}
+input{
+  border: 2rpx solid gray;
+  height: 60rpx;
+}

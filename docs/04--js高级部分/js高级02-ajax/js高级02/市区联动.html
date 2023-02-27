@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    市<select name="" id="shi"></select>
+    区<select name="" id="qu"></select>
+    
+    <script>
+        var addObj = {
+            "北京市":['朝阳区','东城区','西城区','丰台区'],
+            "郑州市":['管城区','金水区','二七区','高新区','郑东新区'],
+            "洛阳市":['涧西区','老城区','洛龙区']
+        };
+        var val = Object.values(addObj);
+        console.log(val);
+        //1.取出json对象中所有的 key 
+        // Object.keys();  可以直接取出 json对象中所有的key值
+        var shiEle  = document.getElementById("shi");
+        var quEle  = document.getElementById("qu");
+        window.onload = function(){
+            
+            //方式一：直接遍历json对象
+            /* for (var key in addObj) {
+                //创建
+                var opEle = document.createElement("option");
+                //美化
+                opEle.innerText = key;
+                //添加
+                shiEle.appendChild(opEle);
+            } */
+            //方式二：Object.keys(对象名) 直接从对象中获取所有的key值  得到一个数组
+            //       Object.values(addObj); 直接从对象中取出所有 value值 得到一个数组
+            var keyArr = Object.keys(addObj);
+            for (var i in keyArr) {
+                //创建
+                var opEle = document.createElement("option");
+                //美化
+                opEle.innerText = keyArr[i];
+                //添加
+                shiEle.appendChild(opEle);
+            }
+
+            //当市加载完后，会显示当前json对象中的第一个市  那对应的 区中的数据也得是 第一个市对应的区
+            var quArr = addObj[keyArr[0]];
+            //console.log(quArr);
+            //遍历区数组  添加到区的下拉框中
+            for (var i in quArr) {
+                //创建
+                var opEle = document.createElement("option");
+                //美化
+                opEle.innerText = quArr[i];
+                //添加
+                quEle.appendChild(opEle);
+            }
+        }
+
+        /*
+            联动：
+                分析：需求：当市下拉框中的值 发生改变时 让区的下拉框也随之发生改变
+            1.绑定什么事件？
+                onchange 事件 当内容发生改变时触发
+            2.只要我们能取出 市的下拉框改变后的值  我们就可以取出  市对应的区 的数组
+                问题：如何取出 市 呢？
+        */
+        document.getElementById("shi").onchange = function(){
+            //此时  this.value就是我们需要的 市 的值 
+            // addObj[this.value] 这个就是我们需要的区的数组
+            //console.log( addObj[this.value]);
+            var quArr = addObj[this.value];
+            //在添加区之前  需要先把老的 内容给清空掉
+            quEle.innerHTML = "";
+            //干掉老的内容后，添加了新的内容(区)
+            for (var i in quArr) {
+                //创建
+                var opEle = document.createElement("option");
+                //美化
+                opEle.innerText = quArr[i];
+                //添加
+                quEle.appendChild(opEle);
+            }
+        }
+    </script>
+</body>
+</html>

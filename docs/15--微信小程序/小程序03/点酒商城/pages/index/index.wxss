@@ -1,0 +1,47 @@
+.lunbo image{
+  width: 100%;
+}
+.wine-nav{
+  display: flex;
+  height: 210rpx;
+  padding: 30rpx 0;
+}
+.wine-nav image{
+  width: 110rpx;
+  height: 110rpx;
+}
+.wine-nav > view{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  text-align: center;
+}
+.wine-list{
+  overflow: hidden;
+}
+.title > view{
+  height: 100rpx;
+  font-size: 40rpx;
+  color: white;
+  background-color: gray;
+  border-radius: 20rpx;
+  text-align: center;
+  line-height: 100rpx;
+}
+.title-img{
+  width: 100%;
+  height: 300rpx;
+}
+.wine-detail{
+  width: 50%;
+  float: left;
+}
+.wine-img{
+  width: 368rpx;
+  height: 384rpx;
+}
+.jiagou{
+  width: 68rpx;
+  height: 50rpx;
+}

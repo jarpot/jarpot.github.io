@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum=1.0,minimum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <script src=""></script>
+    <style>
+        html {
+            font-size: 100px;
+        }
+
+        .box {
+            font-size: .2rem;
+        }
+
+        .son {
+            font-size: .5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- rem 相对于  html 根标签来说 -->
+    你好嘿嘿黑
+    <div class="box">
+        你好哈哈哈
+        <div class="son">
+            你好阀手动阀
+        </div>
+    </div>
+    <script>
+        function setRem() {
+            //ui设计稿的宽度
+            var ui_w = 375;
+            //获取设备宽度
+            var client_width = document.documentElement.clientWidth || document.body.clientWidth;
+            //通过js动态改变根节点字体大小
+            var htmlEle = document.getElementsByTagName('html')[0];
+            htmlEle.style.fontSize = (client_width / ui_w) * 100 + 'px';
+        }
+        //通过onresize事件触发 setRem函数
+        window.onresize = setRem;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+</head>
+<body>
+    <div style="width: 200px;height: 200px;border: 1px solid red;" contenteditable></div>
+</body>
+<script>
+    //$(document) === js中的  docuemnt对象
+    //$(window)  ===  js中的 window对象
+    $(document).on('contextmenu',function(event){
+        console.log(1111);
+        //1.使用事件对象阻止默认行为
+        //event.preventDefault();
+        
+        //2.return  false;
+        //return false;
+    })
+
+    //阻止 复制事件的默认行为
+    $("div").on('copy',function(){
+        return false;
+    })
+</script>
+</html>

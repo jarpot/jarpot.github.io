@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //set()具有构造函数
+        //创建set 实例对象   可以做数组的去重
+        //let a = [1,2,3,3,4,5,1];
+        //let set = new Set(a);//直接将数组结构====》set结构
+        
+        //新增 add();
+        /* set.add(1);
+        set.add(2);
+        set.add(3);
+        set.add(2);
+        set.add(4); */
+        //删除delete()
+        //set.delete(2);
+        //has 判断 是否存在某一个数据  如果存在返回true  否则 false
+        //console.log( set.has(100) );
+        //清空 clear()
+        //set.clear();
+        /* console.log(set);
+
+
+        let arr = [...set];
+        console.log(arr); */
+
+
+        //set的遍历方法
+        let set = new Set([1,2,3,4]);
+        console.log(set);
+        let keys = set.keys();
+        console.log(keys);
+
+        let vs = set.values();
+        console.log(vs);
+        //通过for of 对 set结构进行遍历
+        /* for (let v of vs) {
+            console.log(v);
+        } */
+
+        /* set.forEach(function(v){
+            console.log(v);
+        }) */
+        //1个entrie 代表一个条目  包含 一个key 一个value  并且是对应关系的key和value
+        let entries = set.entries();
+        console.log(entries)
+    </script>
+</body>
+</html>

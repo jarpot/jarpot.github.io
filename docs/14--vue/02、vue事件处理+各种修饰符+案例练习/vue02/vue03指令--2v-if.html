@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- v-if  v-else  v-else-if 用来控制 标签是否显示
+            注意：v-if系列指令 必须用在同级标签 相邻
+        -->
+        <!-- <p v-if="i == 1">你好哈哈哈</p>
+        <p>你好嘿嘿</p>
+        <p v-else-if="i == 5">你好呵呵</p>
+        <p v-else>你好嘿嘿</p> -->
+        <ul  v-if="state">
+            <li>1个li</li>
+            <li>2个li</li>
+            <li>3个li</li>
+        </ul>
+        <ul  v-else>
+            <li>1个li111</li>
+            <li>2个li222</li>
+            <li>3个li333</li>
+        </ul>
+        <!-- v-show和v-if指令的区别
+            v-show控制的css样式级别 display
+            v-if 会使用底层的虚拟DOM算法计算该不该显示
+        -->
+        <p v-show="state">这是一个p标签</p>
+    </div>
+</body>
+<script>
+    /* let a = 10;
+    if(a>5){
+        alert();
+    }else if(a>7 && a<10){
+        alert();
+    }else if(){
+
+    }else{
+
+    } */
+</script>
+<script>
+    new Vue({
+        el:'#app',
+        data:{
+            state:false,
+            i:5
+        }
+    })
+</script>
+</html>

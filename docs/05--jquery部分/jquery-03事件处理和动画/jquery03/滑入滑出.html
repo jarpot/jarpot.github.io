@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.4.1.js"></script>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <button>滑入</button>
+    <button>滑出</button>
+    <button>切换</button>
+   
+<script>
+    /*
+        
+        slow 慢速 == 600ms
+        fast 快速 == 200ms
+        自定义时间
+    */
+    $("button:eq(0)").click(function(){
+        $('div').slideDown('slow');
+    })
+
+    $("button:eq(1)").click(function(){
+        $('div').slideUp(2000);
+    })
+
+    $("button:eq(2)").click(function(){
+        $('div').slideToggle(2000);
+    })
+
+    
+    
+</script>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum=1.0,minimum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+
+
+</body>
+<script>
+    /*
+        封装单击事件 和 长按事件
+            单击事件：
+                核心：比较手指按下的位置 和 手指抬起的位置 
+                使用changedTouches
+                封装函数：
+                    方法名
+                    参数列表
+                    返回值
+                绑定事件的三步走：
+                    1.确定触发事件的目标对象
+                    2.确定触发事件的类型
+                    3.确定具体的事件操作
+        比较手指按下的位置 和 手指抬起的位置 
+            用 抬起的位置  - 按下的位置 < 10px 触发fn函数
+            否则 不触发
+                1.取出手指按下和抬起的位置
+
+        长按事件：
+
+    */
+    var touchEvents = {
+        tap: function (ele,fn1,fn2) {
+            var sx, sy, ex, ey;
+            var timer = null;
+            var statu = 0;
+            ele.addEventListener('touchstart', function (e) {
+                //每一次触摸 都要让statu从0开始
+                statu = 0;
+                e = e || window.event;
+                //取出 手指触摸时的位置坐标
+                sx = e.changedTouches[0].clientX;
+                sy = e.changedTouches[0].clientY;
+
+                timer = setTimeout(function(){
+                    fn2();
+                    statu = 1;
+                }, 750);
+
+            }, false);
+
+            ele.addEventListener('touchend', function (e) {
+                e = e || window.event;
+                //取出 手指抬起时的位置坐标
+                ex = e.changedTouches[0].clientX;
+                ey = e.changedTouches[0].clientY;
+
+                clearTimeout(timer);
+                timer = null;
+
+                if (Math.abs(ex - sx) < 10 && Math.abs(ey - sy) < 10 && statu == 0) {
+                    fn1();
+                }
+            }, false);
+        }
+    }
+    var box = document.getElementsByClassName('box')[0];
+    touchEvents.tap(box, function () {
+        alert('单击事件');
+    },function(){
+        alert('长按事件');
+    });
+</script>
+
+</html>
