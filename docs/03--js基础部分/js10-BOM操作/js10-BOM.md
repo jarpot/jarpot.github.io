@@ -52,7 +52,7 @@ BOM主要用来操作浏览器。
 
 甚至 HTML DOM 的 document 也是 window 对象的属性之一：
 
-![image-20211121224008688](assets/image-20211121224008688.png)
+![image-20211121224008688](https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20211121224008688.png)
 
 ### 1.2 为什么学习BOM编程
 

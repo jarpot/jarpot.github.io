@@ -78,7 +78,7 @@ session：会话
 
 ### 1.3 cookie 的实现原理 
 
-![image-20211201142219756](assets/image-20211201142219756.png)
+![image-20211201142219756](https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20211201142219756.png)
 
 根据cookie信息识别对应的session。一般都说cookie用于记录用户的登录状态，但实际上 能够记录用户登陆状态的是 session，但是 session的实现是依托于cookie的。
 
@@ -167,7 +167,7 @@ session是服务器端会话技术。
   </script>
   ```
 
-  ![image-20210322161729731](assets/image-20210322161729731.png)
+  ![image-20210322161729731](https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20210322161729731.png)
 
 
 ### 1.5 封装cookie 
@@ -200,13 +200,13 @@ session是服务器端会话技术。
 
 
 
-![image-20210322163716960](assets/image-20210322163716960.png)
+![image-20210322163716960](https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20210322163716960.png)
 
 
 
 **如果我就不呢？就不封装**
 
-![jb](assets/jb.jpg)
+![jb](https://gitee.com/Yawpot/cloudimages/raw/master/img/jb.jpg)
 
 
 
@@ -274,7 +274,7 @@ session是服务器端会话技术。
 
 ## 二、Storage  存储
 
-![image-20210322211602824](assets/image-20210322211602824.png)
+![image-20210322211602824](https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20210322211602824.png)
 
 和stroage对比cookie 的缺点：
 
@@ -394,7 +394,7 @@ length 获取localStorage一共有多少条数据
 
 当同源的localStorage有更改以后，会触发这个事件(storage)
 
-![image-20210322222258266](assets/image-20210322222258266.png)
+![image-20210322222258266](https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20210322222258266.png)
 
 ### 2.2 sessionStorage
 
@@ -410,7 +410,7 @@ sessionStroage.setItem();   sessionStroage.getItem   sessionStroage.removeItem  
 
 cookie和localStorage 和sessionStorage的区别：
 
-![image-20210322223121313](assets/image-20210322223121313.png)
+![image-20210322223121313](https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20210322223121313.png)
 
 面试高频题：cookie 和localStorage和sessionStorage的区别？
 

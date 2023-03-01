@@ -172,17 +172,17 @@ document.querySelectorAll("");多个元素   NodeLists
 
 需求：点击添加选项按钮，把输入框中的内容添加到左侧输入框中，选中左侧输入框中的内容，点击`去右边`按钮，把选中的选项添加到右侧框中，点击`去左边`按钮同理。
 
-![image-20220609170132977](assets/image-20220609170132977.png)
+![image-20220609170132977](https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220609170132977.png)
 
 
 
 #### 3.3 图片放大  
 
-![image-20211118114828989](assets/image-20211118114828989.png)
+![image-20211118114828989](https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20211118114828989.png)
 
 #### 3.4 购物车   
 
-![1601088065455](assets/1601088065455.png)
+![1601088065455](https://gitee.com/Yawpot/cloudimages/raw/master/img/1601088065455.png)
 
 分析：
 
@@ -458,11 +458,11 @@ document.querySelectorAll("");多个元素   NodeLists
 
 1.创建模板  
 
-![1601193052203](assets/1601193052203.png)
+![1601193052203](https://gitee.com/Yawpot/cloudimages/raw/master/img/1601193052203.png)
 
 2.读取模板，并替换模板中的内容  
 
-![1601193226808](assets/1601193226808.png)
+![1601193226808](https://gitee.com/Yawpot/cloudimages/raw/master/img/1601193226808.png)
 
 3.模板法购物车（新增）
 

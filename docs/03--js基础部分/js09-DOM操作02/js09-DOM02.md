@@ -205,4 +205,4 @@ var sTop=document.documentElement.scrollTop||document.body.scrollTop;
 
 如何实现广告图片在固定位置不动？ 
 
-![image-20210616093532548](assets/image-20210616093532548.png)
+![image-20210616093532548](https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20210616093532548.png)
