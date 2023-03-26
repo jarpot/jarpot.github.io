@@ -17,7 +17,7 @@
 
 ### 1.1 简介
 
-<img src="assets/image-20220308085212341.png" alt="image-20220308085212341" style="zoom: 50%;" />
+<img src="https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220308085212341.png" alt="image-20220308085212341" style="zoom: 50%;" />
 
 - 2020年9月18日发布，3.0版本 代号 ‘one piece’。  vue2.7   vue2.6
 - 3.0版本代表了超过2年的开发工作，包括30多个RFC、2600多个提交、来自99个贡献者的628个请求，以及核心回购之外的大量开发和文档工作。
@@ -70,7 +70,7 @@ npm run serve
 
 官网地址：https://vitejs.cn/
 
-<img src="assets/image-20220308093236762.png" alt="image-20220308093236762" style="zoom:50%;" />
+<img src="https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220308093236762.png" alt="image-20220308093236762" style="zoom:50%;" />
 
 Vite（法语意为 "快速的"，发音 `/vit/`
 
@@ -85,7 +85,7 @@ grant  gulp  webpack
 
 #### 2.2.2 传统构建与vite构建对比图
 
-<img src="assets/image-20220308100305723.png" alt="image-20220308100305723" style="zoom: 150%;" />
+<img src="https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220308100305723.png" alt="image-20220308100305723" style="zoom: 150%;" />
 
 基于打包器启动时，重建整个包的效率很低。原因显而易见：因为这样更新速度会随着应用体积增长而直线下降。
 
@@ -112,7 +112,7 @@ npm run dev
 
 2. **main.js分析**  
 
-   <img src="assets/image-20220308103113880.png" alt="image-20220308103113880" style="zoom:50%;" />
+   <img src="https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220308103113880.png" alt="image-20220308103113880" style="zoom:50%;" />
 
    ```js
    //此处的引入import 不在是 Vue的构造函数了 引入的是一个名为  createApp 的工厂函数。
@@ -128,17 +128,17 @@ npm run dev
 
    **vue2的实例对象：**
 
-   ![image-20220308104303764](assets/image-20220308104303764.png)
+   ![image-20220308104303764](https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220308104303764.png)
 
    **vue3的实例对象：**
 
-   ![image-20220308104022830](assets/image-20220308104022830.png)
+   ![image-20220308104022830](https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220308104022830.png)
 
    **注意：**在vue3构建的项目中无法再使用vue2创建vue实例的`Vue`构造方法了。必须使用vue3的写法，引入`createApp()`工厂方法
 
 4. **普通组件中的变化** 
 
-   ![image-20220308104731384](assets/image-20220308104731384.png)
+   ![image-20220308104731384](https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220308104731384.png)
 
    **注意：**定义组件时 DOM结构可以不用根标签包括了。
 
@@ -146,7 +146,7 @@ npm run dev
 
 打开chrome应用商店 下载beta版  就是vue3的开发者工具版本，之前安装的应该也可以使用。
 
-![image-20220308112040949](assets/image-20220308112040949.png)
+![image-20220308112040949](https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220308112040949.png)
 
 ## 三、vue3常用的组合式(Composition) API
 
@@ -156,7 +156,7 @@ npm run dev
 
 使用 (`data`、`computed`、`methods`、`watch`) 组件选项来组织逻辑通常都很有效。然而，当我们的组件开始变得更大时，**逻辑关注点**的列表也会增长。尤其对于那些一开始没有编写这些组件的人来说，这会导致组件难以阅读和理解。
 
-![Vue 选项式 API: 按选项类型分组的代码](assets/options-api.png)
+![Vue 选项式 API: 按选项类型分组的代码](https://gitee.com/Yawpot/cloudimages/raw/master/img/options-api.png)
 
 这是一个大型组件的示例，其中**逻辑关注点**按颜色进行分组。
 
@@ -302,7 +302,7 @@ console.log(counter.value) // 1
 
 将值封装在一个对象中，看似没有必要，但为了保持 JavaScript 中不同数据类型的行为统一，这是必须的。这是因为在 JavaScript 中，`Number` 或 `String` 等基本类型是通过值而非引用传递的：
 
-![按引用传递与按值传递](assets/pass-by-reference-vs-pass-by-value-animation.gif)
+![按引用传递与按值传递](https://gitee.com/Yawpot/cloudimages/raw/master/img/pass-by-reference-vs-pass-by-value-animation.gif)
 
 在任何值周围都有一个封装对象，这样我们就可以在整个应用中安全地传递它，而不必担心在某个地方失去它的响应性。
 
@@ -310,13 +310,13 @@ console.log(counter.value) // 1
 
 **使用:** `let age = ref(58)` 此句代码 58 被ref包括后  并不是说age=58  此时的age是一个对象`RefImpl{}` 其中包含一个属性value, 我们使用`age.value`才可以真正的取到数值58 ;
 
-<img src="assets/image-20220308201136314.png" alt="image-20220308201136314" style="zoom:33%;" />
+<img src="https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220308201136314.png" alt="image-20220308201136314" style="zoom:33%;" />
 
 此处的控制台输出为:
 
-<img src="assets/image-20220308201230731.png" alt="image-20220308201230731" style="zoom: 50%;" />
+<img src="https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220308201230731.png" alt="image-20220308201230731" style="zoom: 50%;" />
 
-<img src="assets/image-20220308201522830.png" alt="image-20220308201522830" style="zoom:50%;" />
+<img src="https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220308201522830.png" alt="image-20220308201522830" style="zoom:50%;" />
 
 **小结:**
 
@@ -369,7 +369,7 @@ console.log(counter.value) // 1
 
 **原因:** 此处我们打印 `son`对象 发现 被ref()包括的son对象是如下形式:
 
-<img src="assets/image-20220308203320032.png" alt="image-20220308203320032" style="zoom:50%;" />
+<img src="https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220308203320032.png" alt="image-20220308203320032" style="zoom:50%;" />
 
 此时虽然整体的son还是 `RefImpl`形式 , 但是其中的`value` 属性却变成了 `proxy` 形式  是 ES6的新特性 : **代理**  
 
@@ -440,7 +440,7 @@ console.log(counter.value) // 1
 
 - context是当前组件的上下文 我们在控制台打印context可以得到如下图所示内容
 
-  ![image-20220308220827367](assets/image-20220308220827367.png)
+  ![image-20220308220827367](https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220308220827367.png)
   - **attrs:** 当子组件中没有声明props属性时， 父向子传递的数据会保存在attrs中
 
   - **emit:** 自定义事件会保存在此处
@@ -496,7 +496,7 @@ console.log(counter.value) // 1
 
 对于这种情况，我们可以使用一对 `provide` 和 `inject`。无论组件层次结构有多深，父组件都可以作为其所有子组件的依赖提供者。这个特性有两个部分：父组件有一个 `provide` 选项来提供数据，子组件有一个 `inject` 选项来开始使用这些数据。
 
-<img src="assets/components_provide.png" alt="Provide/inject scheme" style="zoom:50%;" />
+<img src="https://gitee.com/Yawpot/cloudimages/raw/master/img/components_provide.png" alt="Provide/inject scheme" style="zoom:50%;" />
 
 **主要作用：**父组件向后代组件传递数据。
 
@@ -750,7 +750,7 @@ watchEffect(()=>{
 
 概念：Fragment就是一个虚拟的元素，vue3中元素不必使用根元素包括，其实就是放在一个Fragment虚拟元素中了。
 
-<img src="assets/image-20220309095438266.png" alt="image-20220309095438266" style="zoom:50%;" />
+<img src="https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220309095438266.png" alt="image-20220309095438266" style="zoom:50%;" />
 
 ### 7.2 Teleport 组件 传送门 
 
@@ -769,7 +769,7 @@ watchEffect(()=>{
 
 **官方案例：** 点击按钮 打开弹出框，teleport内置组件可以让弹出框显示在指定的位置
 
-![image-20220309110532944](assets/image-20220309110532944.png)
+![image-20220309110532944](https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220309110532944.png)
 
 Father.vue组件：
 
@@ -929,13 +929,13 @@ Dialog.vue组件：
 
 ### 7.3 Suspense组件 
 
-<img src="assets/image-20220309110907958.png" alt="image-20220309110907958" style="zoom: 50%;" />
+<img src="https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220309110907958.png" alt="image-20220309110907958" style="zoom: 50%;" />
 
 ## 八、vue3的生命周期 
 
 ### 8.1 vue2的生命周期
 
-<img src="assets/image-20220206165435204.png" alt="image-20220206165435204" style="zoom:50%;" />
+<img src="https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220206165435204.png" alt="image-20220206165435204" style="zoom:50%;" />
 
 ### 8.2 vue3生命周期
 
@@ -943,7 +943,7 @@ Dialog.vue组件：
 
 **vue3生命周期图解：**
 
-<img src="assets/image-20220309111951676.png" alt="image-20220309111951676" style="zoom: 40%;" />
+<img src="https://gitee.com/Yawpot/cloudimages/raw/master/img/image-20220309111951676.png" alt="image-20220309111951676" style="zoom: 40%;" />
 
 你可以通过在生命周期钩子前面加上 “on” 来访问组件的生命周期钩子。
 
